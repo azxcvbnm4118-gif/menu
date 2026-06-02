@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ส้มตำแซ่บนัวครัวสมใจ | เมนูออนไลน์</title>
+    <meta
+      name="description"
+      content="เมนูส้มตำ ยำแซ่บ ของกินคู่กัน และเครื่องดื่ม พร้อมส่งออเดอร์เข้า LINE OA"
+    />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="เมนูหลัก">
+        <a class="brand" href="#menu">
+          <img src="images/โลโก้หลัก.png" alt="โลโก้ร้านส้มตำแซ่บนัวครัวสมใจ" />
+          <span>ส้มตำแซ่บนัวครัวสมใจ</span>
+        </a>
+        <a class="line-link" href="#order">ตะกร้า <span id="cartCount">0</span></a>
+      </nav>
+      <div class="hero-copy">
+        <p class="eyebrow">แซ่บอีสานแท้</p>
+        <h1>ส้มตำแซ่บนัวครัวสมใจ</h1>
+        <p>
+          เลือกหมวด เลือกวัตถุดิบ ระดับความเผ็ด และวิธีชำระเงิน แล้วส่งออเดอร์ถึงร้านผ่าน LINE OA
+        </p>
+        <a class="primary-link" href="#menu">ดูเมนู</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="store-info" aria-label="ข้อมูลร้าน">
+        <div class="section-heading store-heading">
+          <p class="eyebrow">ข้อมูลร้าน</p>
+          <h2>ติดต่อพ่อค้า</h2>
+        </div>
+        <div class="info-grid">
+          <article>
+            <span>โทรสั่งได้ที่</span>
+            <strong>096-510-7402</strong>
+            <a href="tel:0965107402">โทรหาร้าน</a>
+          </article>
+          <article>
+            <span>เวลาเปิด-ปิด</span>
+            <strong>เปิดทุกวัน 10:00 - 19.00 น.</strong>
+            <p>วันหยุดพิเศษเช็คได้ที่หน้าเพจ Facebook ของร้าน</p>
+          </article>
+          <article>
+            <span>ที่อยู่ร้าน</span>
+            <strong>28 ร่อนพิบูลย์ 2</strong>
+            <p>ตำบลร่อนพิบูลย์ อำเภอร่อนพิบูลย์ นครศรีธรรมราช 80130</p>
+            <a href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener">นำทางมาร้าน</a>
+          </article>
+          <article>
+            <span>บริการจัดส่ง</span>
+            <strong>สั่งครบ 200 บาท ส่งฟรีในระยะ 4 กม.</strong>
+            <p>นอกระยะ 4 กม. ร้านจะติดต่อกลับเพื่อยืนยันค่าส่ง</p>
+          </article>
+          <article>
+            <span>โอนชำระเงิน</span>
+            <strong>กรุงศรี 2541841215</strong>
+            <p>พร้อมเพย์ 0965107402</p>
+          </article>
+        </div>
+        <div class="contact-actions">
+          <a class="contact-button" href="tel:0965107402">โทร 096-510-7402</a>
+          <a class="contact-button is-muted" href="https://m.me/somtum.somjai" target="_blank" rel="noopener">Facebook Messenger</a>
+          <a class="contact-button is-line" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener">LINE OA</a>
+          <a class="contact-button is-map" href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener">นำทางมาร้าน</a>
+        </div>
+        <p class="contact-note">กดปุ่มเพื่อสอบถามร้านโดยตรง หรือส่งคำสั่งซื้อผ่านตะกร้าด้านล่าง</p>
+      </section>
+
+      <section class="filters" aria-label="หมวดหมู่เมนู">
+        <button class="filter-button is-active" type="button" data-category="plara">ปลาร้า</button>
+        <button class="filter-button" type="button" data-category="thai">ไม่ปลาร้า</button>
+        <button class="filter-button" type="button" data-category="yum">ยำแซ่บ</button>
+        <button class="filter-button" type="button" data-category="pairing">กินคู่กัน</button>
+        <button class="filter-button" type="button" data-category="drink">เครื่องดื่ม</button>
+      </section>
+
+      <section class="menu-section" id="menu" aria-labelledby="menuTitle">
+        <div class="section-heading">
+          <p class="eyebrow" id="categoryEyebrow">เมนูปลาร้า</p>
+          <h2 id="menuTitle">เลือกหมวดด้านบนเพื่อดูเมนูแบบไม่ต้องเลื่อนยาว</h2>
+        </div>
+        <div id="menuSections"></div>
+      </section>
+
+      <section class="order-section" id="order" aria-labelledby="orderTitle">
+        <div class="section-heading">
+          <p class="eyebrow">สรุปคำสั่งซื้อ</p>
+          <h2 id="orderTitle">ตะกร้าของคุณ</h2>
+        </div>
+
+        <div class="order-layout">
+          <div class="cart-panel">
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-empty" id="cartEmpty">ยังไม่มีเมนูในตะกร้า</div>
+            <div class="total-row">
+              <span>รวมทั้งหมด</span>
+              <strong id="cartTotal">฿0</strong>
+            </div>
+          </div>
+
+          <form class="customer-form" id="orderForm">
+            <label>
+              ชื่อลูกค้า
+              <input name="customerName" autocomplete="name" required placeholder="เช่น คุณมิ้น" />
+            </label>
+            <label>
+              เบอร์โทร
+              <input name="phone" inputmode="tel" autocomplete="tel" required placeholder="08x-xxx-xxxx" />
+            </label>
+            <label>
+              วิธีรับอาหาร
+              <select name="fulfillment" required>
+                <option value="ทานที่ร้าน">ทานที่ร้าน</option>
+                <option value="รับที่ร้าน">รับที่ร้าน</option>
+                <option value="ส่งเดลิเวอรี่">ส่งเดลิเวอรี่</option>
+              </select>
+            </label>
+            <label>
+              วิธีชำระเงิน
+              <select name="paymentMethod" required>
+                <option value="เงินสด">เงินสด</option>
+                <option value="โอนผ่านบัญชี/พร้อมเพย์">โอนผ่านบัญชี/พร้อมเพย์</option>
+                <option value="จ่ายที่ร้าน">จ่ายที่ร้าน</option>
+                <option value="เก็บเงินปลายทาง">เก็บเงินปลายทาง</option>
+              </select>
+            </label>
+            <div class="payment-note">
+              <strong>โอนชำระเงิน</strong>
+              <span>ธนาคารกรุงศรี 2541841215</span>
+              <span>พร้อมเพย์ 0965107402</span>
+              <img class="payment-qr" src="images/บาร์โค้ด1.1.png" alt="QR พร้อมเพย์สำหรับชำระเงิน" />
+            </div>
+            <label>
+              หมายเหตุ
+              <textarea name="note" rows="4" placeholder="(ใส่หรือไม่ก็ได้) บอกให้เราทราบคุณอยากบอกอะไรเพิ่มเติม"></textarea>
+            </label>
+            <button class="submit-button" type="submit">ส่งออเดอร์เข้า LINE</button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <button class="category-jump" id="categoryJump" type="button" aria-label="กลับไปหมวดหมู่เมนู">กลับไปหมวดหมู่</button>
+
+    <script src="app.js"></script>
+  </body>
+</html>
