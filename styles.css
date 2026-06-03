@@ -1,16 +1,15 @@
 :root {
-  color-scheme: light;
-  --ink: #201b15;
-  --muted: #67584a;
-  --paper: #fff8ed;
-  --panel: #ffffff;
-  --line: #ead7ba;
-  --leaf: #2f6f37;
-  --chili: #b91c1c;
-  --lime: #d9f99d;
-  --gold: #f2b84b;
-  --clay: #8a3f16;
-  --shadow: 0 18px 50px rgba(78, 45, 20, 0.14);
+  /* Design System Variables (Modern Isan Restaurant) */
+  --bg: #F6F1E7; /* Background */
+  --primary: #B32025; /* Primary / Chili */
+  --secondary: #2E6B3D; /* Secondary / Leaf */
+  --text: #2B1D0E; /* Text primary */
+  --muted: #6A5A4A; /* Text secondary */
+  --border: #E3D8C8; /* Border */
+  --card-bg: #FFFFFF; /* Card background */
+  --btn-hover: #8E1B1F; /* Button hover */
+  --shadow-sm: 0 8px 20px rgba(43,29,14,0.06);
+  --shadow-lg: 0 18px 50px rgba(43,29,14,0.10);
 }
 
 * {
@@ -28,9 +27,17 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, sans-serif;
-  background: var(--paper);
-  color: var(--ink);
+  font-family: 'Prompt', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Kanit for stronger presence */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Kanit', 'Prompt', system-ui, sans-serif;
+  color: var(--text);
 }
 
 /* Site navigation (dark) */
@@ -38,8 +45,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0f0b08;
-  color: #fff;
+  background: transparent;
+  color: var(--card-bg);
   padding: 14px 20px;
 }
 .site-nav .brand {
@@ -60,20 +67,21 @@ body {
 
 /* Hero adjustments */
 .hero { position: relative; min-height: 64vh; display: flex; align-items: center; background: url("images/ส้มตำปลาร้า = IMG_0001.jpg") center/cover no-repeat; color: #fff; }
-.hero:before { content: ""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(24,12,6,0.72), rgba(47,111,55,0.18)); }
+.hero:before { content: ""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(24,12,6,0.64), rgba(46,107,61,0.14)); }
 .hero .hero-copy { position: relative; z-index:2; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 72px 24px; }
 .hero .eyebrow { color: var(--gold); font-weight:800 }
 .hero h1 { color:#fff; font-size: clamp(2rem, 4.5vw, 3.8rem); margin: 8px 0 12px }
 .hero .hero-lead { color: rgba(255,255,255,0.92); max-width: 620px }
 .hero .hero-actions { margin-top:18px; display:flex; gap:12px }
-.primary-link { background: var(--chili); color:#fff; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:900 }
-.secondary-link { background: rgba(255,255,255,0.12); color:#fff; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:700 }
+.primary-link { background: var(--primary); color:#fff; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:800; box-shadow: var(--shadow-sm); }
+.primary-link:hover { background: var(--btn-hover); }
+.secondary-link { background: rgba(255,255,255,0.12); color:#fff; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:700 }
 
 /* Menu cards layout */
 .recommend-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:18px }
-.recommend-card { background:#fff; border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:8px; box-shadow: 0 12px 30px rgba(18,12,8,0.08) }
-.recommend-card img { width:100%; height:160px; object-fit:cover; border-radius:10px }
-.recommend-card h3 { margin:0; font-size:1.05rem }
+.recommend-card { background: var(--card-bg); border-radius:18px; padding:12px; display:flex; flex-direction:column; gap:8px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+.recommend-card img { width:100%; height:160px; object-fit:cover; border-radius:14px }
+.recommend-card h3 { margin:0; font-size:1.05rem; font-family: 'Kanit', sans-serif }
 .recommend-card p { margin:0; color:var(--muted); font-size:0.95rem }
 .recommend-card .price-row { display:flex; justify-content:space-between; align-items:center; margin-top:8px }
 .price-row strong { color: var(--chili); font-size:1.05rem }
@@ -643,11 +651,11 @@ h1 {
 }
 
 .menu-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
 }
 
 .menu-card img {
@@ -658,7 +666,7 @@ h1 {
 }
 
 .menu-body {
-  padding: 14px;
+  padding: 16px;
 }
 
 .menu-title-row {
@@ -670,7 +678,12 @@ h1 {
 
 .menu-body h4 {
   margin: 0 0 8px;
-  font-size: 1.18rem;
+  font-size: 1.12rem;
+  font-family: 'Kanit', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .menu-body p {
@@ -730,10 +743,12 @@ strong {
   min-height: 40px;
   padding: 8px 12px;
   color: #fff;
-  background: var(--leaf);
-  border-color: var(--leaf);
+  background: var(--primary);
+  border-color: var(--primary);
   font-weight: 800;
+  border-radius: 12px;
 }
+.add-button:hover { background: var(--btn-hover); }
 
 .field-label {
   display: grid;
@@ -807,10 +822,10 @@ strong {
 
 .cart-panel,
 .customer-form {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
 }
 
 .cart-panel {
