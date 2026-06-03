@@ -16,12 +16,6 @@
 * {
   box-sizing: border-box;
 }
-
-html,
-body {
-  min-width: 0;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -64,6 +58,24 @@ textarea {
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(90deg, rgba(24, 12, 6, 0.82), rgba(47, 111, 55, 0.28)),
+    url("images/ส้มตำปลาร้า = IMG_0001.jpg")
+      center / cover;
+  color: #fff;
+}
+
+.topbar {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .brand,
@@ -118,10 +130,16 @@ textarea {
 }
 
 .hero-copy {
+<<<<<<< HEAD
   max-width: 720px;
   width: 100%;
   margin: auto;
   padding: 54px 16px 70px;
+=======
+  width: min(1120px, calc(100% - 32px));
+  margin: auto;
+  padding: 72px 0 110px;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .eyebrow {
@@ -134,6 +152,7 @@ textarea {
   color: var(--gold);
 }
 
+<<<<<<< HEAD
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -197,6 +216,8 @@ main {
   padding-bottom: 90px;
 }
 
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 h1,
 h2,
 p {
@@ -213,6 +234,7 @@ h1 {
 
 .hero-copy p:not(.eyebrow) {
   max-width: 620px;
+<<<<<<< HEAD
   margin: 18px 0 26px;
   font-size: 1rem;
   line-height: 1.75;
@@ -228,24 +250,43 @@ h1 {
 }
 
 .primary-link {
+=======
+  margin: 22px 0 30px;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.primary-link,
+.submit-button {
+  padding: 12px 18px;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
   background: var(--gold);
   color: #241e19;
 }
 
+<<<<<<< HEAD
 .secondary-link {
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 .filters,
 .menu-section,
 .order-section,
 .store-info {
+<<<<<<< HEAD
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
+=======
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .store-info {
@@ -268,10 +309,17 @@ h1 {
 }
 
 .info-grid article {
+<<<<<<< HEAD
   min-height: 120px;
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 12px;
+=======
+  min-height: 150px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
   background: #fff;
   box-shadow: var(--shadow);
 }
@@ -316,6 +364,7 @@ h1 {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 14px;
+<<<<<<< HEAD
   align-items: flex-start;
   position: relative;
 }
@@ -323,6 +372,8 @@ h1 {
 .contact-group {
   position: relative;
   width: min(280px, 100%);
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .contact-button {
@@ -335,6 +386,7 @@ h1 {
   background: var(--chili);
   color: #fff;
   font-weight: 900;
+<<<<<<< HEAD
   width: 100%;
 }
 
@@ -370,10 +422,21 @@ h1 {
   color: var(--ink);
   text-decoration: none;
   font-weight: 800;
+=======
+}
+
+.contact-button.is-muted {
+  background: #2563eb;
+}
+
+.contact-button.is-line {
+  background: #06c755;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .contact-button.is-map {
   background: var(--leaf);
+<<<<<<< HEAD
   min-width: 180px;
   width: auto;
 }
@@ -411,6 +474,8 @@ h1 {
 
 .payment-note {
   display: none;
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .contact-note {
@@ -433,8 +498,12 @@ h1 {
   background: #fff;
   color: var(--muted);
   cursor: pointer;
+<<<<<<< HEAD
   white-space: normal;
   word-break: break-word;
+=======
+  white-space: nowrap;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .filter-button.is-active {
@@ -447,7 +516,11 @@ h1 {
 .category-jump {
   position: fixed;
   right: 18px;
+<<<<<<< HEAD
   bottom: 90px;
+=======
+  bottom: 18px;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
   z-index: 30;
   min-height: 44px;
   padding: 10px 16px;
@@ -470,6 +543,7 @@ h1 {
   transform: translateY(0);
 }
 
+<<<<<<< HEAD
 .cart-summary-button {
   position: fixed;
   right: 18px;
@@ -524,6 +598,10 @@ h1 {
 
 .section-heading {
   padding: 38px 0 18px;
+=======
+.section-heading {
+  padding: 54px 0 24px;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 .section-heading h2 {
@@ -601,6 +679,7 @@ h1 {
   -webkit-line-clamp: 2;
 }
 
+<<<<<<< HEAD
 body,
 button,
 input,
@@ -621,6 +700,8 @@ strong {
   white-space: normal;
 }
 
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 .menu-actions {
   display: flex;
   align-items: center;
@@ -889,12 +970,17 @@ strong {
   }
 
   .hero {
+<<<<<<< HEAD
     min-height: 68vh;
+=======
+    min-height: 86vh;
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
   }
 }
 
 @media (max-width: 520px) {
   .topbar {
+<<<<<<< HEAD
     padding: 18px 12px;
   }
 
@@ -924,6 +1010,9 @@ strong {
 
   main {
     padding-bottom: 86px;
+=======
+    width: min(100% - 24px, 1120px);
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
   }
 
   .hero-copy,
@@ -931,8 +1020,12 @@ strong {
   .menu-section,
   .order-section,
   .store-info {
+<<<<<<< HEAD
     width: 100%;
     padding: 0 12px;
+=======
+    width: min(100% - 24px, 1120px);
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
   }
 
   .menu-actions,

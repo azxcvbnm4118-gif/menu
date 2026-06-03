@@ -485,7 +485,10 @@ function addToCart(id, card) {
     quantity: existing ? existing.quantity + 1 : 1,
   });
   renderCart();
+<<<<<<< HEAD
   showToast(`เพิ่ม ${item.name} ลงตะกร้าแล้ว`);
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 }
 
 function renderCart() {
@@ -496,8 +499,11 @@ function renderCart() {
   cartEmpty.classList.toggle("is-hidden", entries.length > 0);
   cartTotal.textContent = money(total);
   cartCount.textContent = count;
+<<<<<<< HEAD
   cartSummaryCount.textContent = count;
   cartSummaryTotal.textContent = money(total);
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 
   cartItems.innerHTML = entries
     .map(
@@ -530,6 +536,7 @@ function updateQuantity(key, change) {
   renderCart();
 }
 
+<<<<<<< HEAD
 function showToast(message) {
   if (!toast) return;
   toast.textContent = message;
@@ -565,6 +572,8 @@ if (paymentMethodSelect && paymentDetails) {
   });
 }
 
+=======
+>>>>>>> f19a304a9d9fcb1e93c13736941ade96800ed6ef
 function updateCardPrice(card) {
   const item = allItems().find((menuItem) => menuItem.id === card.dataset.menuCard);
   if (!item) return;
