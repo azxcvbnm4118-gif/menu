@@ -279,6 +279,7 @@ const menuGroups = [
 ];
 
 const cart = new Map();
+const recommendedIds = new Set(["somtam-plara", "tam-thai", "yum-mama", "grilled-chicken"]);
 const menuSections = document.querySelector("#menuSections");
 const cartItems = document.querySelector("#cartItems");
 const cartEmpty = document.querySelector("#cartEmpty");
@@ -428,9 +429,11 @@ function renderMenuCard(item) {
     `
     : "";
 
+  const badge = recommendedIds.has(item.id) ? `<span class="badge">แนะนำ</span>` : "";
   return `
     <article class="menu-card" data-menu-card="${item.id}">
       <img src="${item.image}" alt="${item.name}" loading="lazy" />
+      ${badge}
       <div class="menu-body">
         <div class="menu-title-row">
           <h4>${item.name}</h4>
@@ -498,6 +501,7 @@ function renderCart() {
   cartCount.textContent = count;
   cartSummaryCount.textContent = count;
   cartSummaryTotal.textContent = money(total);
+  if (typeof updateFabCount === "function") updateFabCount(count);
 
   cartItems.innerHTML = entries
     .map(
@@ -629,6 +633,19 @@ cartItems.addEventListener("click", (event) => {
     renderCart();
   }
 });
+
+// Floating cart (FAB) and mobile nav handlers
+const cartFab = document.querySelector("#cartFab");
+const cartFabCount = document.querySelector("#cartFabCount");
+function updateFabCount(count) {
+  if (cartFabCount) cartFabCount.textContent = count;
+  if (cartFab) cartFab.classList.toggle("has-items", count > 0);
+}
+if (cartFab) {
+  cartFab.addEventListener("click", () => {
+    document.querySelector("#order").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
