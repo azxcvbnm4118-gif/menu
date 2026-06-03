@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Headless DOM tests for menu site",
   "scripts": {
+    "start": "npx --yes serve -l 8000 .",
+    "verify:images": "node scripts/verify-images.js",
+    "verify:js": "node --check app.js",
     "test": "node tests/test-dom.js"
   },
   "devDependencies": {

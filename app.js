@@ -589,9 +589,10 @@ function renderMenuCard(item) {
     : "";
 
   const badge = recommendedIds.has(item.id) ? `<span class="badge">แนะนำ</span>` : "";
+  const imageSrc = item.image || placeholderImage;
   return `
     <article class="menu-card" data-menu-card="${item.id}">
-      <img src="${item.image}" alt="${item.name}" loading="lazy" />
+      <img src="${imageSrc}" alt="${item.name}" loading="lazy" data-menu-image onerror="this.onerror=null;this.src='${placeholderImage}'" />
       ${badge}
       <div class="menu-body">
         <div class="menu-title-row">
@@ -851,5 +852,6 @@ orderForm.addEventListener("submit", async (event) => {
   }
 });
 
-renderMenu();
+renderMenu("all");
 renderCart();
+window.addToCart = addToCart;

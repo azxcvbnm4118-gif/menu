@@ -35,11 +35,40 @@
         </div>
       </nav>
       <div class="hero-copy">
-        <p class="hero-lead">กดปุ่มเพื่อติดต่อร้านหรือดูตะกร้าตอนนี้ได้ง่าย ๆ และอย่าลืมสั่งผ่าน LINE เมื่อเลือกเมนูครบ</p>
+        <p class="eyebrow">แซ่บนัว ไม่ซ้ำใคร</p>
+        <h1>ปลาร้านัว ๆ ถึงเครื่องอีสานแท้</h1>
+        <p class="hero-lead">วัตถุดิบสดใหม่ คัดสรรคุณภาพดี รสจัดจ้านถึงใจ สไตล์อีสานแท้</p>
       </div>
     </header>
 
     <main>
+      <section class="filters" aria-label="หมวดหมู่เมนู">
+        <button class="filter-button is-active" type="button" data-category="all">
+          <span class="icon">🔥</span>
+          <span class="label">เมนูแนะนำ</span>
+        </button>
+        <button class="filter-button" type="button" data-category="plara">
+          <span class="icon">🌶️</span>
+          <span class="label">ปลาร้า</span>
+        </button>
+        <button class="filter-button" type="button" data-category="thai">
+          <span class="icon">🍋</span>
+          <span class="label">ไม่ปลาร้า</span>
+        </button>
+        <button class="filter-button" type="button" data-category="yum">
+          <span class="icon">🥗</span>
+          <span class="label">ยำ/สลัด</span>
+        </button>
+        <button class="filter-button" type="button" data-category="pairing">
+          <span class="icon">🍚</span>
+          <span class="label">กินคู่กัน</span>
+        </button>
+        <button class="filter-button" type="button" data-category="drink">
+          <span class="icon">🥤</span>
+          <span class="label">เครื่องดื่ม</span>
+        </button>
+      </section>
+
       <section class="menu-section" id="menu" aria-labelledby="menuTitle">
         <div class="section-heading">
           <p class="eyebrow" id="categoryEyebrow">เมนูแนะนำ</p>
@@ -101,10 +130,12 @@
           <p class="eyebrow">ติดต่อร้าน</p>
           <h2>ติดต่อร้าน</h2>
         </div>
+        <p class="contact-note">กดปุ่มเพื่อติดต่อร้านหรือดูตะกร้าตอนนี้ได้ง่าย ๆ และอย่าลืมสั่งผ่าน LINE เมื่อเลือกเมนูครบ</p>
         <div class="contact-actions">
-          <a class="contact-link contact-card" href="tel:0965107402">1. โทร 096-510-7402</a>
-          <a class="contact-link contact-card" href="https://m.me/somtum.somjai" target="_blank" rel="noopener">2. Facebook Messenger</a>
-          <a class="contact-link contact-card" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener">3. LINE OA</a>
+          <a class="contact-link contact-card" href="tel:0965107402">โทร 096-510-7402</a>
+          <a class="contact-link contact-card" href="https://m.me/somtum.somjai" target="_blank" rel="noopener">Facebook Messenger</a>
+          <a class="contact-link contact-card" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener">LINE OA</a>
+          <a class="contact-link contact-card map-link" href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener">นำทางมาร้าน</a>
         </div>
       </section>
 
@@ -150,7 +181,7 @@
                 <option value="เก็บเงินปลายทาง">เก็บเงินปลายทาง</option>
               </select>
             </label>
-            <div class="payment-details is-hidden" id="paymentDetails" aria-live="polite">
+            <div class="payment-details" id="paymentDetails" aria-live="polite">
               <strong>โอนผ่านบัญชี/พร้อมเพย์</strong>
               <p>เลือกวิธีชำระเงินแบบโอน แล้วคัดลอกเลขบัญชีหรือสแกน QR เพื่อชำระได้ทันที</p>
               <div class="payment-grid">
