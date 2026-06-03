@@ -62,10 +62,30 @@ const menuImages = {
   "coconut-smoothie": "images/มะพร้าวปั่นนมสด = IMG_0055.jpg",
 };
 
+const FEATURED_ITEM_IDS = [
+  "somtam-plara",
+  "yum-mama",
+  "larb-minced-pork",
+  "tam-lao",
+  "tam-senlek",
+  "tam-kanomjeen",
+  "bamboo-soup",
+];
+
+const FEATURED_DISPLAY_COPY = {
+  "somtam-plara": "รสจัดจ้าน ปลาร้านัวถึงใจ",
+  "yum-mama": "ยำซี๊ด ๆ เส้นเหนียวนุ่ม",
+  "larb-minced-pork": "หมูสับแน่น ๆ แซ่บอีสานแท้",
+  "tam-lao": "เครื่องแน่นเต็มจาน",
+  "tam-senlek": "เส้นเหนียวนุ่ม คลุกปลาร้านัว",
+  "tam-kanomjeen": "ขนมจีนคลุกน้ำตำรสเด็ด",
+  "bamboo-soup": "หอมข้าวคั่ว นัวปลาร้า",
+};
+
 const categoryMeta = {
-  plara: { label: "เมนูปลาร้า", heading: "ปลาร้านัว ๆ ถึงเครื่องอีสานแท้" },
-  thai: { label: "เมนูไม่ปลาร้า", heading: "แซ่บกลมกล่อม สำหรับสายไม่ทานปลาร้า" },
-  yum: { label: "เมนูยำแซ่บ", heading: "ยำแซ่บถึงเส้นถึงเครื่อง" },
+  plara: { label: "ตำปลาร้า", heading: "ปลาร้านัว ๆ ถึงเครื่องอีสานแท้" },
+  thai: { label: "ตำไม่ปลาร้า", heading: "แซ่บกลมกล่อม สำหรับสายไม่ทานปลาร้า" },
+  yum: { label: "ยำแซ่บถึงใจ", heading: "ยำแซ่บถึงเส้นถึงเครื่อง" },
   pairing: { label: "กินคู่กัน", heading: "ของกินคู่ส้มตำ เพิ่มความอิ่มครบชุด" },
   drink: { label: "เมนูเครื่องดื่ม", heading: "อร่อย สดชื่น หลากหลายเมนู" },
 };
@@ -452,7 +472,15 @@ const contactMainButton = document.querySelector("#contactMainButton");
 const contactPopup = document.querySelector("#contactPopup");
 const paymentMethodSelect = document.querySelector("#paymentMethod");
 const paymentDetails = document.querySelector("#paymentDetails");
+const itemModal = document.querySelector("#itemModal");
+const itemModalTitle = document.querySelector("#itemModalTitle");
+const itemModalDescription = document.querySelector("#itemModalDescription");
+const itemModalOptions = document.querySelector("#itemModalOptions");
+const itemModalPrice = document.querySelector("#itemModalPrice");
+const itemModalQty = document.querySelector("#itemModalQty");
+const itemModalConfirm = document.querySelector("#itemModalConfirm");
 let toastTimeout;
+let modalActiveItemId = null;
 
 function variantItem(id, name, description, variants, toppings = null, needsSpice = true) {
   return {
@@ -514,13 +542,39 @@ function allItems() {
   return menuGroups.flatMap((group) => group.items);
 }
 
+function menuItemById(id) {
+  return allItems().find((item) => item.id === id);
+}
+
+function getFeaturedItems() {
+  return FEATURED_ITEM_IDS.map((id) => {
+    const item = menuItemById(id);
+    if (!item) return null;
+    const displayDescription = FEATURED_DISPLAY_COPY[id];
+    if (!displayDescription) return item;
+    return { ...item, description: displayDescription };
+  }).filter(Boolean);
+}
+
+function renderFeaturedGrid(items) {
+  const rowOne = items.slice(0, 3);
+  const rowTwo = items.slice(3, 7);
+  return `
+    <div class="menu-grid menu-grid--featured">
+      <div class="menu-grid-row menu-grid-row--top">
+        ${rowOne.map(renderMenuCard).join("")}
+      </div>
+      <div class="menu-grid-row menu-grid-row--bottom">
+        ${rowTwo.map(renderMenuCard).join("")}
+      </div>
+    </div>`;
+}
+
 function renderMenu(category) {
   if (!category || category === "all") {
     categoryEyebrow.textContent = "เมนูแนะนำ";
     menuTitle.textContent = "ยอดนิยม";
-    const featuredGroup = menuGroups.find((g) => g.id === "plara-featured");
-    const items = featuredGroup ? featuredGroup.items : allItems();
-    menuSections.innerHTML = `<div class="menu-grid">${items.map(renderMenuCard).join("")}</div>`;
+    menuSections.innerHTML = renderFeaturedGrid(getFeaturedItems());
   } else {
     const meta = categoryMeta[category];
     if (meta) {
@@ -545,31 +599,83 @@ function renderMenu(category) {
 
 function renderMenuCard(item) {
   const defaultPrice = item.type === "simple" ? item.price : item.variants[0].price;
-  const variantMarkup =
-    item.type === "variant"
-      ? `
-        <label class="field-label">
-          เลือกวัตถุดิบ/รูปแบบ
-          <select data-variant>
-            ${item.variants
-              .map((variant) => `<option value="${variant.id}">${variant.name} - ${money(variant.price)}</option>`)
-              .join("")}
-          </select>
-        </label>
-      `
-      : "";
-  const spiceMarkup = item.needsSpice
-    ? `
+  const badge = recommendedIds.has(item.id) ? `<span class="badge">แนะนำ</span>` : "";
+  const imageSrc = item.image || placeholderImage;
+  return `
+    <article class="menu-card menu-card--compact" data-menu-card="${item.id}">
+      <div class="menu-card__media">
+        <img src="${imageSrc}" alt="${item.name}" loading="lazy" data-menu-image onerror="this.onerror=null;this.src='${placeholderImage}'" />
+        ${badge}
+      </div>
+      <div class="menu-body">
+        <h4>${item.name}</h4>
+        <p class="menu-card-desc">${item.description}</p>
+        <p class="price menu-card-price">${money(defaultPrice)}</p>
+        <button class="add-button" type="button" data-add="${item.id}">เพิ่มลงตะกร้า</button>
+      </div>
+    </article>
+  `;
+}
+
+function selectedVariantFromModal(item, root) {
+  if (item.type === "simple") return { id: "base", name: "ธรรมดา", price: item.price };
+  const select = root.querySelector("[data-modal-variant]");
+  const variantId = select ? select.value : item.variants[0].id;
+  return item.variants.find((variant) => variant.id === variantId) || item.variants[0];
+}
+
+function selectedSpiceFromModal(item, root) {
+  if (!item.needsSpice) return "-";
+  const select = root.querySelector("[data-modal-spice]");
+  return select ? select.value : spiceLevels[0];
+}
+
+function selectedToppingsFromModal(item, root) {
+  if (!item.toppings) return [];
+  const checked = [...root.querySelectorAll("[data-modal-topping]:checked")].map((input) => input.dataset.modalTopping);
+  return item.toppings.filter((topping) => checked.includes(topping.id));
+}
+
+function getModalQuantity() {
+  const value = Number(itemModalQty?.value);
+  if (!Number.isFinite(value) || value < 1) return 1;
+  return Math.min(99, Math.floor(value));
+}
+
+function setModalQuantity(next) {
+  if (!itemModalQty) return;
+  itemModalQty.value = String(Math.max(1, Math.min(99, next)));
+}
+
+function renderModalOptions(item) {
+  const parts = [];
+
+  if (item.type === "variant") {
+    parts.push(`
+      <label class="field-label">
+        เลือกวัตถุดิบ/รูปแบบ
+        <select data-modal-variant>
+          ${item.variants
+            .map((variant) => `<option value="${variant.id}">${variant.name} - ${money(variant.price)}</option>`)
+            .join("")}
+        </select>
+      </label>
+    `);
+  }
+
+  if (item.needsSpice) {
+    parts.push(`
       <label class="field-label">
         ระดับความเผ็ด
-        <select data-spice>
+        <select data-modal-spice>
           ${spiceLevels.map((level) => `<option value="${level}">${level}</option>`).join("")}
         </select>
       </label>
-    `
-    : "";
-  const toppingMarkup = item.toppings
-    ? `
+    `);
+  }
+
+  if (item.toppings) {
+    parts.push(`
       <fieldset class="option-group">
         <legend>เพิ่มท็อปปิ้งพิเศษ</legend>
         <div class="topping-grid">
@@ -577,7 +683,7 @@ function renderMenuCard(item) {
             .map(
               (topping) => `
                 <label class="check-option">
-                  <input type="checkbox" data-topping="${topping.id}" />
+                  <input type="checkbox" data-modal-topping="${topping.id}" />
                   <span>${topping.name} +${money(topping.price)}</span>
                 </label>
               `
@@ -585,40 +691,63 @@ function renderMenuCard(item) {
             .join("")}
         </div>
       </fieldset>
-    `
-    : "";
+    `);
+  }
 
-  const badge = recommendedIds.has(item.id) ? `<span class="badge">แนะนำ</span>` : "";
-  const imageSrc = item.image || placeholderImage;
-  return `
-    <article class="menu-card" data-menu-card="${item.id}">
-      <img src="${imageSrc}" alt="${item.name}" loading="lazy" data-menu-image onerror="this.onerror=null;this.src='${placeholderImage}'" />
-      ${badge}
-      <div class="menu-body">
-        <div class="menu-title-row">
-          <h4>${item.name}</h4>
-          <span class="price" data-card-price>${money(defaultPrice)}</span>
-        </div>
-        <p>${item.description}</p>
-        ${variantMarkup}
-        ${spiceMarkup}
-        ${toppingMarkup}
-        <button class="add-button" type="button" data-add="${item.id}">เพิ่มลงตะกร้า</button>
-      </div>
-    </article>
-  `;
+  itemModalOptions.innerHTML = parts.join("");
 }
 
-function selectedVariant(item, card) {
-  if (item.type === "simple") return { id: "base", name: "ธรรมดา", price: item.price };
-  const variantId = card.querySelector("[data-variant]").value;
-  return item.variants.find((variant) => variant.id === variantId) || item.variants[0];
+function updateModalPrice() {
+  const item = menuItemById(modalActiveItemId);
+  if (!item || !itemModalPrice) return;
+  const dialog = itemModal?.querySelector(".item-modal__dialog");
+  if (!dialog) return;
+  const variant = selectedVariantFromModal(item, dialog);
+  const toppings = selectedToppingsFromModal(item, dialog);
+  const unitPrice = variant.price + toppings.reduce((sum, topping) => sum + topping.price, 0);
+  const qty = getModalQuantity();
+  itemModalPrice.textContent = `${money(unitPrice)} × ${qty} = ${money(unitPrice * qty)}`;
 }
 
-function selectedToppings(item, card) {
-  if (!item.toppings) return [];
-  const checked = [...card.querySelectorAll("[data-topping]:checked")].map((input) => input.dataset.topping);
-  return item.toppings.filter((topping) => checked.includes(topping.id));
+function openAddModal(id) {
+  const item = menuItemById(id);
+  if (!item || !itemModal) return;
+
+  modalActiveItemId = id;
+  itemModalTitle.textContent = item.name;
+  itemModalDescription.textContent = item.description;
+  renderModalOptions(item);
+  setModalQuantity(1);
+  updateModalPrice();
+
+  itemModal.hidden = false;
+  itemModal.setAttribute("aria-hidden", "false");
+  itemModal.classList.add("is-open");
+  document.body.classList.add("modal-open");
+  itemModalConfirm?.focus();
+}
+
+function closeAddModal() {
+  modalActiveItemId = null;
+  if (!itemModal) return;
+  itemModal.classList.remove("is-open");
+  itemModal.hidden = true;
+  itemModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function confirmAddFromModal() {
+  const item = menuItemById(modalActiveItemId);
+  if (!item) return;
+  const dialog = itemModal.querySelector(".item-modal__dialog");
+  const variant = selectedVariantFromModal(item, dialog);
+  const spice = selectedSpiceFromModal(item, dialog);
+  const toppings = selectedToppingsFromModal(item, dialog);
+  const quantity = getModalQuantity();
+
+  addItemToCart(item, { variant, spice, toppings, quantity });
+  closeAddModal();
+  showToast(`เพิ่ม ${item.name} ลงตะกร้าแล้ว`);
 }
 
 function buildCartKey(item, variant, spice, toppings) {
@@ -626,16 +755,11 @@ function buildCartKey(item, variant, spice, toppings) {
   return [item.id, variant.id, spice, toppingIds].join("|");
 }
 
-function addToCart(id, card) {
-  const item = allItems().find((menuItem) => menuItem.id === id);
-  if (!item) return;
-
-  const variant = selectedVariant(item, card);
-  const spice = item.needsSpice ? card.querySelector("[data-spice]").value : "-";
-  const toppings = selectedToppings(item, card);
+function addItemToCart(item, { variant, spice, toppings, quantity }) {
   const unitPrice = variant.price + toppings.reduce((sum, topping) => sum + topping.price, 0);
   const key = buildCartKey(item, variant, spice, toppings);
   const existing = cart.get(key);
+  const addQty = Math.max(1, quantity || 1);
 
   cart.set(key, {
     key,
@@ -645,10 +769,13 @@ function addToCart(id, card) {
     spice,
     toppings,
     unitPrice,
-    quantity: existing ? existing.quantity + 1 : 1,
+    quantity: (existing?.quantity || 0) + addQty,
   });
   renderCart();
-  showToast(`เพิ่ม ${item.name} ลงตะกร้าแล้ว`);
+}
+
+function addToCart(id) {
+  openAddModal(id);
 }
 
 function renderCart() {
@@ -706,14 +833,6 @@ function showToast(message) {
   toast.classList.add("is-visible");
   clearTimeout(toastTimeout);
   toastTimeout = setTimeout(() => toast.classList.remove("is-visible"), 2800);
-}
-
-function updateCardPrice(card) {
-  const item = allItems().find((menuItem) => menuItem.id === card.dataset.menuCard);
-  if (!item) return;
-  const variant = selectedVariant(item, card);
-  const toppingTotal = selectedToppings(item, card).reduce((sum, topping) => sum + topping.price, 0);
-  card.querySelector("[data-card-price]").textContent = money(variant.price + toppingTotal);
 }
 
 function buildOrderPayload(formData) {
@@ -786,12 +905,33 @@ if (paymentMethodSelect && paymentDetails) {
 
 menuSections.addEventListener("click", (event) => {
   const addButton = event.target.closest("[data-add]");
-  if (addButton) addToCart(addButton.dataset.add, addButton.closest("[data-menu-card]"));
+  if (addButton) openAddModal(addButton.dataset.add);
 });
 
-menuSections.addEventListener("change", (event) => {
-  const card = event.target.closest("[data-menu-card]");
-  if (card) updateCardPrice(card);
+if (itemModal) {
+  itemModal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-modal-close]")) closeAddModal();
+  });
+
+  itemModal.addEventListener("change", () => updateModalPrice());
+
+  itemModal.addEventListener("click", (event) => {
+    if (event.target.closest("[data-modal-qty-inc]")) {
+      setModalQuantity(getModalQuantity() + 1);
+      updateModalPrice();
+    }
+    if (event.target.closest("[data-modal-qty-dec]")) {
+      setModalQuantity(getModalQuantity() - 1);
+      updateModalPrice();
+    }
+  });
+
+  itemModalQty?.addEventListener("input", () => updateModalPrice());
+  itemModalConfirm?.addEventListener("click", () => confirmAddFromModal());
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && itemModal?.classList.contains("is-open")) closeAddModal();
 });
 
 cartItems.addEventListener("click", (event) => {
@@ -855,3 +995,4 @@ orderForm.addEventListener("submit", async (event) => {
 renderMenu("all");
 renderCart();
 window.addToCart = addToCart;
+window.confirmAddFromModal = confirmAddFromModal;

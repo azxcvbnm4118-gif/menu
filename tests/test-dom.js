@@ -45,6 +45,13 @@ function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
+async function addFirstItemViaModal(page) {
+  await page.click("button[data-add]");
+  await page.waitForSelector("#itemModal.is-open");
+  await page.click("#itemModalConfirm");
+  await page.waitForFunction(() => Number(document.querySelector("#cartCount").textContent) > 0);
+}
+
 (async () => {
   const possiblePaths = [
     process.env.CHROME_PATH,
@@ -96,8 +103,12 @@ function assert(condition, message) {
     await page.click('.filter-button[data-category="all"]');
     await page.waitForSelector(".menu-card");
 
-    await page.click('button[data-add]');
-    await page.waitForFunction(() => Number(document.querySelector("#cartCount").textContent) > 0);
+    await addFirstItemViaModal(page);
+
+    const cardHasNoInlineSelect = await page.evaluate(
+      () => !document.querySelector(".menu-card select[data-variant], .menu-card select[data-spice]")
+    );
+    assert(cardHasNoInlineSelect, "menu cards should not show variant/spice dropdowns");
 
     const afterAdd = await page.evaluate(() => ({
       count: document.querySelector("#cartCount").textContent,
@@ -130,8 +141,7 @@ function assert(condition, message) {
     const emptyCart = await page.evaluate(() => document.querySelector("#cartCount").textContent);
     assert(Number(emptyCart) === 0, "remove item should empty cart");
 
-    await page.click('button[data-add]');
-    await page.waitForFunction(() => Number(document.querySelector("#cartCount").textContent) > 0);
+    await addFirstItemViaModal(page);
 
     await page.evaluate(() => {
       window.__orderPayload = null;
