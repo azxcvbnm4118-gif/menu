@@ -33,6 +33,61 @@ body {
   color: var(--ink);
 }
 
+/* Site navigation (dark) */
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f0b08;
+  color: #fff;
+  padding: 14px 20px;
+}
+.site-nav .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+}
+.site-nav .brand img { width: 40px; height: 40px; border-radius: 8px; }
+.site-nav .nav-links { list-style: none; margin: 0 0 0 24px; padding: 0; display: inline-flex; gap: 18px; }
+.site-nav .nav-links a { color: #e9e4df; text-decoration: none; font-weight:700 }
+.site-nav .nav-links .active a { color: var(--gold); }
+.site-nav .nav-right { display:flex; gap:12px; align-items:center }
+.site-nav .nav-btn { color:#fff; text-decoration:none; background: rgba(255,255,255,0.06); padding:8px 12px; border-radius:8px; font-weight:700 }
+.site-nav .nav-btn.login { background: transparent; border: 1px solid rgba(255,255,255,0.06) }
+
+/* Hero adjustments */
+.hero { position: relative; min-height: 64vh; display: flex; align-items: center; background: url("images/ส้มตำปลาร้า = IMG_0001.jpg") center/cover no-repeat; color: #fff; }
+.hero:before { content: ""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(24,12,6,0.72), rgba(47,111,55,0.18)); }
+.hero .hero-copy { position: relative; z-index:2; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 72px 24px; }
+.hero .eyebrow { color: var(--gold); font-weight:800 }
+.hero h1 { color:#fff; font-size: clamp(2rem, 4.5vw, 3.8rem); margin: 8px 0 12px }
+.hero .hero-lead { color: rgba(255,255,255,0.92); max-width: 620px }
+.hero .hero-actions { margin-top:18px; display:flex; gap:12px }
+.primary-link { background: var(--chili); color:#fff; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:900 }
+.secondary-link { background: rgba(255,255,255,0.12); color:#fff; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:700 }
+
+/* Menu cards layout */
+.recommend-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:18px }
+.recommend-card { background:#fff; border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:8px; box-shadow: 0 12px 30px rgba(18,12,8,0.08) }
+.recommend-card img { width:100%; height:160px; object-fit:cover; border-radius:10px }
+.recommend-card h3 { margin:0; font-size:1.05rem }
+.recommend-card p { margin:0; color:var(--muted); font-size:0.95rem }
+.recommend-card .price-row { display:flex; justify-content:space-between; align-items:center; margin-top:8px }
+.price-row strong { color: var(--chili); font-size:1.05rem }
+.add-cart { background: #241e19; color:#fff; padding:8px 10px; border-radius:8px; text-decoration:none; font-weight:800 }
+
+/* Mobile bottom nav */
+.mobile-nav { display:none }
+@media (max-width:700px) {
+  .site-nav .nav-links { display:none }
+  .hero { min-height:48vh }
+  .recommend-card img { height:140px }
+  .mobile-nav { display:flex; position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid #eee; padding:8px 12px; justify-content:space-around; z-index:30 }
+}
+
 button,
 input,
 select,
