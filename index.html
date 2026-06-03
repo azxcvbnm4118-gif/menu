@@ -129,11 +129,30 @@
       </section>
 
       <section class="filters" aria-label="หมวดหมู่เมนู">
-        <button class="filter-button is-active" type="button" data-category="plara">ปลาร้า</button>
-        <button class="filter-button" type="button" data-category="thai">ไม่ปลาร้า</button>
-        <button class="filter-button" type="button" data-category="yum">ยำแซ่บ</button>
-        <button class="filter-button" type="button" data-category="pairing">กินคู่กัน</button>
-        <button class="filter-button" type="button" data-category="drink">เครื่องดื่ม</button>
+        <button class="filter-button is-active" type="button" data-category="plara">
+          <span class="icon">🔥</span>
+          <span class="label">เมนูแนะนำ</span>
+        </button>
+        <button class="filter-button" type="button" data-category="plara">
+          <span class="icon">🌶️</span>
+          <span class="label">ปลาร้า</span>
+        </button>
+        <button class="filter-button" type="button" data-category="thai">
+          <span class="icon">🍋</span>
+          <span class="label">ไม่ปลาร้า</span>
+        </button>
+        <button class="filter-button" type="button" data-category="yum">
+          <span class="icon">🥗</span>
+          <span class="label">ยำ/สลัด</span>
+        </button>
+        <button class="filter-button" type="button" data-category="pairing">
+          <span class="icon">🍚</span>
+          <span class="label">กินคู่กัน</span>
+        </button>
+        <button class="filter-button" type="button" data-category="drink">
+          <span class="icon">🥤</span>
+          <span class="label">เครื่องดื่ม</span>
+        </button>
       </section>
 
       <section class="menu-section" id="menu" aria-labelledby="menuTitle">
@@ -223,5 +242,12 @@
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="app.js"></script>
+    <nav class="mobile-nav" role="navigation" aria-label="เมนูหลักบนมือถือ">
+      <a href="#" class="mobile-nav-item">🏠<span>หน้าแรก</span></a>
+      <a href="#menu" class="mobile-nav-item">📋<span>เมนู</span></a>
+      <a href="#order" class="mobile-nav-item cart-btn">🛒<span>ตะกร้า</span></a>
+      <a href="#" class="mobile-nav-item">📄<span>ออเดอร์</span></a>
+      <a href="#" class="mobile-nav-item">👤<span>โปรไฟล์</span></a>
+    </nav>
   </body>
 </html>

@@ -88,6 +88,33 @@ body {
   .mobile-nav { display:flex; position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid #eee; padding:8px 12px; justify-content:space-around; z-index:30 }
 }
 
+/* Filters / category tabs */
+.filters { display:flex; gap:10px; align-items:center; overflow:auto; padding:18px 16px; width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+.filter-button { display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 12px; background: #fff; border-radius:12px; border:1px solid rgba(0,0,0,0.04); min-width:96px; text-align:center; cursor:pointer }
+.filter-button .icon { font-size:20px }
+.filter-button .label { font-weight:700; color:var(--muted); font-size:0.95rem }
+.filter-button.is-active { background: var(--paper); border: 1px solid var(--gold); box-shadow: 0 8px 24px rgba(18,12,8,0.06) }
+
+/* Section headings */
+.section-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 0 16px; width: min(1120px, calc(100% - 32px)); margin: 18px auto }
+.section-heading .eyebrow { color: var(--chili); font-weight:900 }
+.section-heading h2 { margin: 0; font-size:1.6rem }
+
+/* Card badge */
+.badge { display:inline-block; background:var(--chili); color:#fff; padding:6px 10px; border-radius:999px; font-weight:800; font-size:0.85rem }
+
+/* Floating cart */
+.cart-fab { position: fixed; right: 18px; bottom: 84px; background: var(--chili); color:#fff; width:64px; height:64px; border-radius:50%; display:grid; place-items:center; box-shadow: 0 12px 30px rgba(185,28,28,0.28); z-index:60 }
+
+/* Mobile nav items */
+.mobile-nav { display:none }
+.mobile-nav .mobile-nav-item { display:flex; flex-direction:column; align-items:center; gap:4px; text-decoration:none; color:var(--ink); font-weight:700 }
+.mobile-nav .mobile-nav-item span { font-size:11px }
+
+@media (max-width:700px) {
+  .filters { padding-bottom:80px }
+}
+
 button,
 input,
 select,
