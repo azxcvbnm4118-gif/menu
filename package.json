@@ -1,0 +1,11 @@
+{
+  "name": "menu-tests",
+  "version": "1.0.0",
+  "description": "Headless DOM tests for menu site",
+  "scripts": {
+    "test": "node tests/test-dom.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^20.8.1"
+  }
+}

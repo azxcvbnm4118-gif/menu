@@ -25,69 +25,39 @@
             <li><a href="#">หน้าแรก</a></li>
             <li class="active"><a href="#menu">เมนู</a></li>
             <li><a href="#">โปรโมชั่น</a></li>
-            <li><a href="#">เกี่ยวกับเรา</a></li>
-            <li><a href="#">ติดต่อเรา</a></li>
+            <li><a href="#about">เกี่ยวกับเรา</a></li>
+            <li><a href="#contact">ติดต่อเรา</a></li>
           </ul>
         </div>
         <div class="nav-right">
           <a class="nav-btn" href="#order">ตะกร้า <span id="cartCount">0</span></a>
-          <a class="nav-btn login" href="#">เข้าสู่ระบบ</a>
+          <a class="nav-btn login" href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener">นำทางมาร้าน</a>
         </div>
       </nav>
       <div class="hero-copy">
         <p class="eyebrow">แซ่บนัว ไม่ซ้ำใคร</p>
         <h1>ปลาร้านัว ๆ ถึงเครื่องอีสานแท้</h1>
         <p class="hero-lead">วัตถุดิบสดใหม่ คัดสรรคุณภาพดี รสจัดจ้านถึงใจ สไตล์อีสานแท้</p>
-        <div class="hero-actions">
-          <a class="primary-link" href="#menu">สั่งเลย</a>
-          <a class="secondary-link" href="#menu">ดูเมนูแนะนำ</a>
-        </div>
       </div>
     </header>
 
     <main>
-      <section class="recommend-section" aria-label="เมนูแนะนำ">
-        <div class="section-heading store-heading">
-          <p class="eyebrow">เมนูแนะนำ</p>
-          <h2>สั่งแล้วไม่พลาดของอร่อย</h2>
+      <section class="menu-section" id="menu" aria-labelledby="menuTitle">
+        <div class="section-heading">
+          <p class="eyebrow" id="categoryEyebrow">เมนูแนะนำ</p>
+          <div>
+            <h2 id="menuTitle">ยอดนิยม</h2>
+            <p class="section-copy">เมนูขายดีที่สุดที่ลูกค้าชื่นชอบ</p>
+          </div>
         </div>
-        <div class="recommend-grid">
-          <article class="recommend-card">
-            <img src="images/ส้มตำปลาร้า = IMG_0001.jpg" alt="ส้มตำปลาร้า" />
-            <div>
-              <h3>ส้มตำปลาร้า</h3>
-              <p>นัวปลาร้าหอมครก รสจัดจ้านแบบบ้าน ๆ</p>
-              <strong>เริ่มต้น 40฿</strong>
-            </div>
-          </article>
-          <article class="recommend-card">
-            <img src="images/ตำไทย = IMG_0012.jpg" alt="ตำไทย" />
-            <div>
-              <h3>ตำไทย</h3>
-              <p>สายไม่ปลาร้าต้องลอง กลมกล่อม น้ำจิ้มเข้มข้น</p>
-              <strong>เริ่มต้น 40฿</strong>
-            </div>
-          </article>
-          <article class="recommend-card">
-            <img src="images/ยำมาม่า = IMG_0024.jpg" alt="ยำมาม่า" />
-            <div>
-              <h3>ยำมาม่า</h3>
-              <p>ยำซี๊ด ๆ เส้นมาม่าเหนียวนุ่ม เพิ่มท็อปปิ้งได้</p>
-              <strong>เริ่มต้น 59฿</strong>
-            </div>
-          </article>
-          <article class="recommend-card">
-            <img src="images/ชามะนาว = IMG_0037.jpg" alt="ชามะนาว" />
-            <div>
-              <h3>ชามะนาว</h3>
-              <p>สดชื่นตัดเผ็ด ช่วยรีเฟรชทันทีหลังทานอาหาร</p>
-              <strong>เริ่มต้น 30฿</strong>
-            </div>
-          </article>
-        </div>
+        <div id="menuSections"></div>
       </section>
 
-      <section class="features-section" aria-label="ประโยชน์ของร้าน">
+      <section class="features-section" id="about" aria-label="เกี่ยวกับเรา">
+        <div class="section-heading">
+          <p class="eyebrow">เกี่ยวกับเรา</p>
+          <h2>คุณภาพสินค้า</h2>
+        </div>
         <div class="features-grid">
           <div class="feature-item">
             <div class="feature-icon">🎯</div>
@@ -112,17 +82,19 @@
         </div>
       </section>
 
-      <section class="store-info" aria-label="ข้อมูลร้าน">
+      <section class="store-info" id="contact" aria-label="ติดต่อร้าน">
         <div class="section-heading store-heading">
-          <p class="eyebrow">ข้อมูลร้าน</p>
-          <h2>ติดต่อพ่อค้า</h2>
+          <p class="eyebrow">ติดต่อร้าน</p>
+          <h2>ติดต่อร้าน</h2>
+        </div>
+        <p class="contact-note">กดปุ่มเพื่อติดต่อร้านหรือดูตะกร้าตอนนี้ได้ง่าย ๆ และอย่าลืมสั่งผ่าน LINE เมื่อเลือกเมนูครบ</p>
+        <div class="contact-actions">
+          <a class="contact-link contact-card" href="tel:0965107402">โทร 096-510-7402</a>
+          <a class="contact-link contact-card" href="https://m.me/somtum.somjai" target="_blank" rel="noopener">Facebook Messenger</a>
+          <a class="contact-link contact-card" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener">LINE OA</a>
+          <a class="contact-link contact-card map-link" href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener">นำทางมาร้าน</a>
         </div>
         <div class="info-grid">
-          <article>
-            <span>โทรสั่งได้ที่</span>
-            <strong>096-510-7402</strong>
-            <a href="tel:0965107402">โทรหาร้าน</a>
-          </article>
           <article>
             <span>เวลาเปิด-ปิด</span>
             <strong>เปิดทุกวัน 10:00 - 19.00 น.</strong>
@@ -132,63 +104,8 @@
             <span>ที่อยู่ร้าน</span>
             <strong>28 ร่อนพิบูลย์ 2</strong>
             <p>ตำบลร่อนพิบูลย์ อำเภอร่อนพิบูลย์ นครศรีธรรมราช 80130</p>
-            <a href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener">นำทางมาร้าน</a>
-          </article>
-          <article>
-            <span>บริการจัดส่ง</span>
-            <strong>สั่งครบ 200 บาท ส่งฟรีในระยะ 4 กม.</strong>
-            <p>นอกระยะ 4 กม. ร้านจะติดต่อกลับเพื่อยืนยันค่าส่ง</p>
           </article>
         </div>
-        <div class="contact-actions">
-          <div class="contact-group">
-            <button class="contact-button contact-main" type="button" id="contactMainButton" aria-expanded="false">
-              ติดต่อร้าน
-            </button>
-            <div class="contact-popup" id="contactPopup" role="menu" aria-label="ช่องทางติดต่อร้าน">
-              <a class="contact-link" href="tel:0965107402">โทร 096-510-7402</a>
-              <a class="contact-link" href="https://m.me/somtum.somjai" target="_blank" rel="noopener">Facebook Messenger</a>
-              <a class="contact-link" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener">LINE OA</a>
-            </div>
-          </div>
-          <a class="contact-button is-map" href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener">นำทางมาร้าน</a>
-        </div>
-        <p class="contact-note">กดปุ่มเพื่อติดต่อร้านหรือดูตะกร้าตอนนี้ได้ง่าย ๆ และอย่าลืมสั่งผ่าน LINE เมื่อเลือกเมนูครบ</p>
-      </section>
-
-      <section class="filters" aria-label="หมวดหมู่เมนู">
-        <button class="filter-button is-active" type="button" data-category="plara">
-          <span class="icon">🔥</span>
-          <span class="label">เมนูแนะนำ</span>
-        </button>
-        <button class="filter-button" type="button" data-category="plara">
-          <span class="icon">🌶️</span>
-          <span class="label">ปลาร้า</span>
-        </button>
-        <button class="filter-button" type="button" data-category="thai">
-          <span class="icon">🍋</span>
-          <span class="label">ไม่ปลาร้า</span>
-        </button>
-        <button class="filter-button" type="button" data-category="yum">
-          <span class="icon">🥗</span>
-          <span class="label">ยำ/สลัด</span>
-        </button>
-        <button class="filter-button" type="button" data-category="pairing">
-          <span class="icon">🍚</span>
-          <span class="label">กินคู่กัน</span>
-        </button>
-        <button class="filter-button" type="button" data-category="drink">
-          <span class="icon">🥤</span>
-          <span class="label">เครื่องดื่ม</span>
-        </button>
-      </section>
-
-      <section class="menu-section" id="menu" aria-labelledby="menuTitle">
-        <div class="section-heading">
-          <p class="eyebrow" id="categoryEyebrow">เมนูปลาร้า</p>
-          <h2 id="menuTitle">เลือกหมวดด้านบนเพื่อดูเมนูแบบไม่ต้องเลื่อนยาว</h2>
-        </div>
-        <div id="menuSections"></div>
       </section>
 
       <section class="order-section" id="order" aria-labelledby="orderTitle">
@@ -259,20 +176,13 @@
       </section>
     </main>
 
-    <button class="category-jump" id="categoryJump" type="button" aria-label="กลับไปหมวดหมู่เมนู">กลับไปหมวดหมู่</button>
-
-    <button class="cart-summary-button" id="cartSummaryButton" type="button" aria-label="ดูตะกร้าสินค้า">
-      <span class="cart-summary-label">ตะกร้า</span>
-      <span class="cart-summary-count" id="cartSummaryCount">0</span>
-      <span class="cart-summary-total" id="cartSummaryTotal">฿0</span>
-    </button>
-
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="app.js"></script>
     <button class="cart-fab" id="cartFab" aria-label="ตะกร้าสินค้า">
       🛒<span id="cartFabCount">0</span>
     </button>
+    <button class="back-top" id="backToTop" type="button" aria-label="เลื่อนกลับไปด้านบน">↑</button>
 
     <nav class="mobile-nav" role="navigation" aria-label="เมนูหลักบนมือถือ">
       <a href="#" class="mobile-nav-item">🏠<span>หน้าแรก</span></a>
