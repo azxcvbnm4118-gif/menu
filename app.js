@@ -71,6 +71,7 @@ const categoryMeta = {
 };
 
 const menuGroups = [
+  // ─── กลุ่ม 1: เมนูยอดนิยม (ปลาร้า) ───
   {
     id: "plara-featured",
     category: "plara",
@@ -87,7 +88,15 @@ const menuGroups = [
         ["squid", "ปลาหมึก", 89],
         ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
       ]),
-      yumVariant("yum-mama", "ยำมาม่า", [["minced-pork", "หมูสับ", 59], ["pork-sausage", "หมูยอ", 69], ["chicken-feet", "เล็บมือนาง", 79], ["shrimp", "กุ้งสด/สุก", 89], ["squid-neck", "คอหมึก", 89], ["squid", "ปลาหมึก", 89], ["mixed-seafood", "ทะเลรวมสด/สุก", 139]]),
+      yumVariant("yum-mama", "ยำมาม่า", [
+        ["minced-pork", "หมูสับ", 59],
+        ["pork-sausage", "หมูยอ", 69],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
       simpleItem("larb-minced-pork", "ลาบหมูสับ", 49, "หมูสับจุกๆ แซ่บไม่เหมือนใคร"),
       variantItem("tam-lao", "ตำเหลา", "เน้นเครื่องแน่น ไม่เน้นเส้น เลือกวัตถุดิบหลักได้", [
         ["pickled-crab", "ปูเปรี้ยว", 69],
@@ -121,7 +130,285 @@ const menuGroups = [
       simpleItem("bamboo-soup", "ซุปหน่อไม้", 49, "นัวปลาร้า น้ำย่านาง หอมกลิ่นข้าวคั่ว"),
     ],
   },
-];
+  // ─── กลุ่ม 2: เมนูปลาร้าทั้งหมด ───
+  {
+    id: "plara-all",
+    category: "plara",
+    title: "เมนูปลาร้าทั้งหมด",
+    subtitle: "ครบทุกสไตล์ส้มตำปลาร้า",
+    items: [
+      variantItem("somtam-plara", "ส้มตำปลาร้า", "รสจัดจ้าน ปูเน้นๆ ปลาร้าต้มสุก นัวถึงใจ", [
+        ["base", "ธรรมดา", 40],
+        ["pickled-crab", "ปูเปรี้ยว", 45],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-taeng", "ตำแตง", "ตำแตงกวาสด รสชาติกลมกล่อม", [
+        ["base", "ธรรมดา", 40],
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-sua", "ตำซั่ว", "ตำซั่วสูตรพิเศษ เส้นใหญ่นุ่มเหนียว", [
+        ["base", "ธรรมดา", 40],
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-senlek", "ตำเส้นเล็ก", "เส้นเล็กเหนียวนุ่ม คลุกน้ำตำปลาร้ารสจัด", [
+        ["base", "ธรรมดา", 40],
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-lao", "ตำเหลา", "เน้นเครื่องแน่น ไม่เน้นเส้น เลือกวัตถุดิบหลักได้", [
+        ["pickled-crab", "ปูเปรี้ยว", 69],
+        ["pork-sausage", "หมูยอ", 69],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 119],
+        ["squid-neck", "คอหมึก", 119],
+        ["squid", "ปลาหมึก", 119],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-kanomjeen", "ตำขนมจีน", "ขนมจีนเต็มจาน คลุกปลาร้า เปรี้ยวเผ็ดแบบบ้าน ๆ", [
+        ["base", "ธรรมดา", 40],
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-pa", "ตำป่า", "ตำป่าใส่มะเขือ ถั่วฝักยาว รสเข้มข้น", [
+        ["base", "ธรรมดา", 40],
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-pa-seafood", "ตำป่าทะเลรวม", "ตำป่าใส่ทะเลรวม รสจัดจ้านเต็มอิ่ม", [
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      variantItem("tam-plara-squid-neck", "ตำปลาร้าคอหมึก", "คอหมึกเด้งๆ ในตำปลาร้ารสแซ่บ", [
+        ["squid-neck", "คอหมึก", 89],
+      ]),
+      simpleItem("bamboo-soup", "ซุปหน่อไม้", 49, "นัวปลาร้า น้ำย่านาง หอมกลิ่นข้าวคั่ว"),
+      simpleItem("bamboo-curry", "แกงหน่อไม้", 49, "แกงหน่อไม้ใส่ปลาร้า รสชาติเข้มข้น"),
+    ],
+  },
+  // ─── กลุ่ม 3: เมนูไม่ปลาร้า (ไทย) ───
+  {
+    id: "thai-all",
+    category: "thai",
+    title: "เมนูไม่ปลาร้า",
+    subtitle: "แซ่บกลมกล่อม สำหรับสายไม่ทานปลาร้า",
+    items: [
+      thaiVariant("tam-thai", "ตำไทย", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 45],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-corn", "ตำข้าวโพด", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-thai-taeng", "ตำไทยแตง", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-thai-corn", "ตำไทย+ข้าวโพด", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-thai-pa", "ตำไทยป่า", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-thai-kanomjeen", "ตำไทยขนมจีน", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-thai-lao", "ตำไทยเหลา", null, [
+        ["pickled-crab", "ปูเปรี้ยว", 69],
+        ["pork-sausage", "หมูยอ", 69],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 119],
+        ["squid-neck", "คอหมึก", 119],
+        ["squid", "ปลาหมึก", 119],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-thai-sua", "ตำไทยซั่ว", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      thaiVariant("tam-thai-senlek", "ตำไทยเส้นเล็ก", 40, [
+        ["pickled-crab", "ปูเปรี้ยว", 49],
+        ["pork-sausage", "หมูยอ", 59],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+    ],
+  },
+  // ─── กลุ่ม 4: เมนูยำแซ่บ ───
+  {
+    id: "yum-all",
+    category: "yum",
+    title: "เมนูยำแซ่บ",
+    subtitle: "ยำสดใหม่รสจัด ถึงเส้นถึงเครื่อง",
+    items: [
+      yumVariant("yum-woonsen", "ยำวุ้นเส้น", [
+        ["minced-pork", "หมูสับ", 59],
+        ["pork-sausage", "หมูยอ", 69],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      yumVariant("yum-lao", "ยำเหลา", [
+        ["minced-pork", "หมูสับ", 69],
+        ["pork-sausage", "หมูยอ", 69],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 119],
+        ["squid-neck", "คอหมึก", 119],
+        ["squid", "ปลาหมึก", 119],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      yumVariant("yum-glass", "ยำเส้นแก้ว", [
+        ["minced-pork", "หมูสับ", 59],
+        ["pork-sausage", "หมูยอ", 69],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      yumVariant("yum-mama", "ยำมาม่า", [
+        ["minced-pork", "หมูสับ", 59],
+        ["pork-sausage", "หมูยอ", 69],
+        ["chicken-feet", "เล็บมือนาง", 79],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["squid-neck", "คอหมึก", 89],
+        ["squid", "ปลาหมึก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      simpleItem("larb-snail", "ลาบหอย", 59, "ลาบหอยสดๆ รสแซ่บ หอมเครื่องสมุนไพร"),
+      simpleItem("larb-minced-pork", "ลาบหมูสับ", 49, "หมูสับจุกๆ แซ่บไม่เหมือนใคร"),
+      simpleItem("namtok-pork", "น้ำตกหมูย่าง", 59, "หมูย่างชิ้นโตๆ ราดน้ำตก รสเข้มข้น"),
+      yumVariant("yum-pickled-crab", "ยำปูเปรี้ยว", [
+        ["base", "ธรรมดา", 59],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+      yumVariant("larb-pickled-crab", "ลาบปูเปรี้ยว", [
+        ["base", "ธรรมดา", 59],
+        ["shrimp", "กุ้งสด/สุก", 89],
+        ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
+      ]),
+    ],
+  },
+  // ─── กลุ่ม 5: ของกินคู่กัน ───
+  {
+    id: "pairing-all",
+    category: "pairing",
+    title: "กินคู่กัน",
+    subtitle: "ของกินคู่ส้มตำ เพิ่มความอิ่มครบชุด",
+    items: [
+      simpleItem("grilled-chicken", "ไก่ย่าง", 59, "ไก่ย่างหอมกลิ่นเตา เนื้อนุ่ม ชุ่มน้ำ"),
+      simpleItem("sticky-rice", "ข้าวเหนียว", 10, "ข้าวเหนียวนึ่งสด ห่อใบตอง"),
+      simpleItem("grilled-pork", "หมูย่าง", 59, "หมูย่างหมักสูตรพิเศษ หอมเตา"),
+      simpleItem("kanomjeen", "ขนมจีน", 10, "ขนมจีนสดเส้นนุ่ม"),
+      simpleItem("pork-crackling", "แคปหมู", 30, "แคปหมูกรอบๆ เค็มหอม"),
+      simpleItem("bamboo-soup", "ซุปหน่อไม้", 49, "นัวปลาร้า น้ำย่านาง หอมกลิ่นข้าวคั่ว"),
+      simpleItem("bamboo-curry", "แกงหน่อไม้", 49, "แกงหน่อไม้ใส่ปลาร้า รสชาติเข้มข้น"),
+    ],
+  },
+  // ─── กลุ่ม 6: เครื่องดื่ม ชา/กาแฟ ───
+  {
+    id: "drink-tea",
+    category: "drink",
+    title: "ชา / กาแฟ / โกโก้",
+    subtitle: "เครื่องดื่มหอมกลมกล่อม",
+    items: [
+      drinkItem("thai-tea", "ชาเย็น", 25, 35),
+      drinkItem("green-tea", "ชาเขียว", 25, 35),
+      drinkItem("lemon-tea", "ชามะนาว", 25, 35),
+      drinkItem("milk-tea", "ชานม", 25, 35),
+      drinkItem("ovaltine", "โอวัลติน", 25, 35),
+      drinkItem("taro", "เผือก", 30, 40),
+      drinkItem("coffee", "กาแฟ", 25, 35),
+      drinkItem("cocoa", "โกโก้", 25, 35),
+    ],
+  },
+  // ─── กลุ่ม 7: เครื่องดื่ม โซดา ───
+  {
+    id: "drink-soda",
+    category: "drink",
+    title: "เมนูโซดา",
+    subtitle: "โซดาสดชื่น หลากสี หลายรส",
+    items: [
+      simpleItem("red-soda", "น้ำแดงโซดา", 25),
+      simpleItem("red-lime-soda", "น้ำแดงโซดามะนาว", 30),
+      simpleItem("lychee-soda", "ลิ้นจี่โซดา", 30),
+      simpleItem("apple-soda", "แอปเปิ้ลโซดา", 30),
+      simpleItem("grape-soda", "องุ่นโซดา", 30),
       simpleItem("blue-hawaii", "บลูฮาวายโซดา", 30),
       simpleItem("strawberry-soda", "สตอเบอรี่โซดา", 30),
       simpleItem("orange-soda", "ส้มโซดา", 30),
@@ -129,6 +416,7 @@ const menuGroups = [
       simpleItem("honey-lime-soda", "น้ำผึ้งมะนาวโซดา", 40),
     ],
   },
+  // ─── กลุ่ม 8: เครื่องดื่มแนะนำ ───
   {
     id: "drink-recommend",
     category: "drink",
@@ -226,15 +514,33 @@ function allItems() {
   return menuGroups.flatMap((group) => group.items);
 }
 
-function renderMenu() {
-  categoryEyebrow.textContent = "เมนูแนะนำ";
-  menuTitle.textContent = "ยอดนิยม";
-
-  menuSections.innerHTML = `
-    <div class="menu-grid">
-      ${allItems().map(renderMenuCard).join("")}
-    </div>
-  `;
+function renderMenu(category) {
+  if (!category || category === "all") {
+    categoryEyebrow.textContent = "เมนูแนะนำ";
+    menuTitle.textContent = "ยอดนิยม";
+    const featuredGroup = menuGroups.find((g) => g.id === "plara-featured");
+    const items = featuredGroup ? featuredGroup.items : allItems();
+    menuSections.innerHTML = `<div class="menu-grid">${items.map(renderMenuCard).join("")}</div>`;
+  } else {
+    const meta = categoryMeta[category];
+    if (meta) {
+      categoryEyebrow.textContent = meta.label;
+      menuTitle.textContent = meta.heading;
+    }
+    const groups = menuGroups.filter((g) => g.category === category);
+    menuSections.innerHTML = groups
+      .map(
+        (group) => `
+        <div class="menu-group">
+          <div class="group-heading">
+            <h3>${group.title}</h3>
+            <p>${group.subtitle}</p>
+          </div>
+          <div class="menu-grid">${group.items.map(renderMenuCard).join("")}</div>
+        </div>`
+      )
+      .join("");
+  }
 }
 
 function renderMenuCard(item) {
@@ -351,19 +657,16 @@ function renderCart() {
 
   cartEmpty.classList.toggle("is-hidden", entries.length > 0);
   cartTotal.textContent = money(total);
-  cartCount.textContent = count;
-  cartSummaryCount.textContent = count;
-  cartSummaryTotal.textContent = money(total);
-  // Ensure FAB display updates even if loaded after script
+  if (cartCount) cartCount.textContent = count;
+  if (cartSummaryCount) cartSummaryCount.textContent = count;
+  if (cartSummaryTotal) cartSummaryTotal.textContent = money(total);
+
   try {
     const fabCountEl = document.querySelector('#cartFabCount');
     const fabBtnEl = document.querySelector('#cartFab');
     if (fabCountEl) fabCountEl.textContent = count;
     if (fabBtnEl) fabBtnEl.classList.toggle('has-items', count > 0);
-  } catch (e) {
-    // ignore
-  }
-  if (typeof updateFabCount === "function") updateFabCount(count);
+  } catch (e) {}
 
   cartItems.innerHTML = entries
     .map(
@@ -402,39 +705,6 @@ function showToast(message) {
   toast.classList.add("is-visible");
   clearTimeout(toastTimeout);
   toastTimeout = setTimeout(() => toast.classList.remove("is-visible"), 2800);
-}
-
-if (cartSummaryButton) {
-  cartSummaryButton.addEventListener("click", () => {
-    document.querySelector("#order").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-}
-
-if (backToTopButton) {
-  backToTopButton.addEventListener("click", () => {
-    document.querySelector("#menu").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-}
-
-if (contactMainButton && contactPopup) {
-  contactMainButton.addEventListener("click", () => {
-    const isOpen = contactPopup.classList.toggle("is-open");
-    contactMainButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!contactPopup.contains(event.target) && event.target !== contactMainButton) {
-      contactPopup.classList.remove("is-open");
-      contactMainButton.setAttribute("aria-expanded", "false");
-    }
-  });
-}
-
-if (paymentMethodSelect && paymentDetails) {
-  paymentMethodSelect.addEventListener("change", () => {
-    const isTransfer = paymentMethodSelect.value === "โอนผ่านบัญชี/พร้อมเพย์";
-    paymentDetails.classList.toggle("is-visible", isTransfer);
-  });
 }
 
 function updateCardPrice(card) {
@@ -480,6 +750,39 @@ async function submitOrder(payload) {
   return { ok: response.type === "opaque" || response.ok };
 }
 
+if (cartSummaryButton) {
+  cartSummaryButton.addEventListener("click", () => {
+    document.querySelector("#order").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+if (backToTopButton) {
+  backToTopButton.addEventListener("click", () => {
+    document.querySelector("#menu").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+if (contactMainButton && contactPopup) {
+  contactMainButton.addEventListener("click", () => {
+    const isOpen = contactPopup.classList.toggle("is-open");
+    contactMainButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!contactPopup.contains(event.target) && event.target !== contactMainButton) {
+      contactPopup.classList.remove("is-open");
+      contactMainButton.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+if (paymentMethodSelect && paymentDetails) {
+  paymentMethodSelect.addEventListener("change", () => {
+    const isTransfer = paymentMethodSelect.value === "โอนผ่านบัญชี/พร้อมเพย์";
+    paymentDetails.classList.toggle("is-visible", isTransfer);
+  });
+}
+
 menuSections.addEventListener("click", (event) => {
   const addButton = event.target.closest("[data-add]");
   if (addButton) addToCart(addButton.dataset.add, addButton.closest("[data-menu-card]"));
@@ -502,15 +805,6 @@ cartItems.addEventListener("click", (event) => {
   }
 });
 
-// Floating cart (FAB) and mobile nav handlers
-function updateFabCount(count) {
-  const cartFabCount = document.querySelector('#cartFabCount');
-  const cartFab = document.querySelector('#cartFab');
-  if (cartFabCount) cartFabCount.textContent = count;
-  if (cartFab) cartFab.classList.toggle('has-items', count > 0);
-}
-
-// Delegate click for FAB so handler works even if script loaded before the button
 document.addEventListener('click', (event) => {
   const fab = event.target.closest && event.target.closest('#cartFab');
   if (fab) {
