@@ -83,11 +83,11 @@ const FEATURED_DISPLAY_COPY = {
 };
 
 const categoryMeta = {
-  plara: { label: "ตำปลาร้า", heading: "ปลาร้านัว ๆ ถึงเครื่องอีสานแท้" },
-  thai: { label: "ตำไม่ปลาร้า", heading: "แซ่บกลมกล่อม สำหรับสายไม่ทานปลาร้า" },
-  yum: { label: "ยำ-ลาบ", heading: "ยำแซ่บถึงเส้นถึงเครื่อง" },
-  pairing: { label: "กินคู่กัน", heading: "ของกินคู่ส้มตำ เพิ่มความอิ่มครบชุด" },
-  drink: { label: "เมนูเครื่องดื่ม", heading: "อร่อย สดชื่น หลากหลายเมนู" },
+  plara: { label: "เมนูปลาร้า", heading: "ปลาร้านัว ๆ" },
+  thai: { label: "เมนูไม่ปลาร้า", heading: "แซ่บกลมกล่อม" },
+  yum: { label: "เมนูยำแซ่บ", heading: "ถึงเส้นถึงเครื่อง" },
+  pairing: { label: "กินคู่กัน", heading: "ของกินคู่ส้มตำ" },
+  drink: { label: "เมนูเครื่องดื่ม", heading: "สดชื่น แก้เผ็ด" },
 };
 
 const menuGroups = [
