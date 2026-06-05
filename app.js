@@ -816,7 +816,10 @@ if (cartSummaryButton) {
 
 if (backToTopButton) {
   backToTopButton.addEventListener("click", () => {
-    document.querySelector("#menu").scrollIntoView({ behavior: "smooth", block: "start" });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 }
 
