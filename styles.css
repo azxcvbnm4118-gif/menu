@@ -227,9 +227,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Floating cart */
 .cart-fab {
   position: fixed;
-  top: 18px;
   right: 18px;
-  bottom: auto;
+  bottom: 84px;
+  top: auto;
+
   background: var(--chili);
   color: #fff;
   width: 64px;
@@ -243,8 +244,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-top {
   position: fixed;
-  top: 94px;
   right: 18px;
+  bottom: 18px;
+  top: auto;
+
   width: 54px;
   height: 54px;
   border: none;
@@ -1853,7 +1856,6 @@ body.modal-open {
   margin: 0;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
-  white-space: nowrap;
 }
 
 .page-home .site-footer {
