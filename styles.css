@@ -1877,6 +1877,7 @@ body.modal-open {
     grid-area: copy;
     text-align: center;
   }
+}   
   
 @media (max-width: 768px) {
 
