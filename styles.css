@@ -1877,4 +1877,22 @@ body.modal-open {
     grid-area: copy;
     text-align: center;
   }
+  
+@media (max-width: 768px) {
+
+  .site-nav {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .site-nav .nav-links {
+    margin: 12px 0 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+  }
+
+  .site-nav .nav-links a {
+    font-size: 14px;
+  }
 }
