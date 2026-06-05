@@ -18,31 +18,29 @@
   </head>
   <body class="page-home">
     <header class="hero">
-      <nav class="site-nav" aria-label="เมนูหลัก">
-        <div class="nav-left">
-          <a class="brand" href="index.html">
-            <img src="images/โลโก้หลัก.png" alt="โลโก้ร้านส้มตำแซ่บนัวครัวสมใจ" />
-            <span>ปลาร้านัว</span>
-          </a>
-          <ul class="nav-links">
-            <li class="active"><a href="index.html">หน้าแรก</a></li>
-            <li><a href="index.html#menu">เมนู</a></li>
-            <li><a href="promotion.html">โปรโมชั่น</a></li>
-            <li><a href="about.html">เกี่ยวกับเรา</a></li>
-            <li><a href="contact.html">ติดต่อเรา</a></li>
-          </ul>
-        </div>
-        <div class="nav-right">
-          <a class="nav-btn" href="#order">ตะกร้า <span id="cartCount">0</span></a>
-          <a class="nav-btn login" href="https://maps.app.goo.gl/SgtCqAfzvM5B5siA6" target="_blank" rel="noopener"
-            >นำทางมาร้าน</a
-          >
+  <nav class="site-nav">
+
+    <div class="footer-brand">
+      <img src="images/โลโก้หลัก.png" alt="โลโก้ร้าน" width="48" height="48" />
+      <div>
+        <strong>ส้มตำแซ่บนัวครัวสมใจ</strong>
+      </div>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html">หน้าแรก</a>
+      <a href="index.html#menu">เมนู</a>
+      <a href="promotion.html">โปรโมชั่น</a>
+      <a href="about.html">เกี่ยวกับเรา</a>
+      <a href="contact.html">ติดต่อเรา</a>
+    </nav>
         </div>
       </nav>
       <div class="hero-copy">
         <p class="eyebrow">แซ่บนัว ไม่ซ้ำใคร</p>
         <h1>ปลาร้านัว ๆ ถึงเครื่องอีสานแท้</h1>
-        <p class="hero-lead">วัตถุดิบสดใหม่ คัดสรรคุณภาพดี รสจัดจ้านถึงใจ สไตล์อีสานแท้</p>
+        <p class="hero-lead">วัตถุดิบสดใหม่ คัดสรรคุณภาพดี 
+          รสจัดจ้านถึงใจ สไตล์อีสานแท้</p>
       </div>
     </header>
 
@@ -62,7 +60,7 @@
         </button>
         <button class="filter-button" type="button" data-category="yum">
           <span class="icon" aria-hidden="true">🍜</span>
-          <span class="label">ยำแซ่บถึงใจ</span>
+          <span class="label">ยำ-ลาบ</span>
         </button>
         <button class="filter-button" type="button" data-category="pairing">
           <span class="icon" aria-hidden="true">🍗</span>
@@ -79,7 +77,6 @@
           <p class="eyebrow" id="categoryEyebrow">เมนูแนะนำ</p>
           <div>
             <h2 id="menuTitle">ยอดนิยม</h2>
-            <p class="section-copy">เมนูขายดีที่สุดที่ลูกค้าชื่นชอบ</p>
           </div>
         </div>
         <div id="menuSections"></div>
@@ -104,11 +101,11 @@
           <form class="customer-form" id="orderForm">
             <label>
               ชื่อลูกค้า
-              <input name="customerName" autocomplete="name" required placeholder="เช่น คุณมิ้น" />
+              <input name="customerName" autocomplete="name" required placeholder="เช่น คุณพล" />
             </label>
             <label>
               เบอร์โทร
-              <input name="phone" inputmode="tel" autocomplete="tel" required placeholder="08x-xxx-xxxx" />
+              <input name="phone" inputmode="tel" autocomplete="tel" placeholder="08x-xxx-xxxx" />
             </label>
             <label>
               วิธีรับอาหาร
@@ -159,21 +156,8 @@
 
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <div class="footer-brand">
-          <img src="images/โลโก้หลัก.png" alt="" width="48" height="48" />
-          <div>
-            <strong>ส้มตำแซ่บนัวครัวสมใจ</strong>
-            <p>ปลาร้านัว ๆ ถึงเครื่องอีสานแท้</p>
-          </div>
-        </div>
-        <nav class="footer-nav" aria-label="ลิงก์ท้ายหน้า">
-          <a href="index.html">หน้าแรก</a>
-          <a href="index.html#menu">เมนู</a>
-          <a href="promotion.html">โปรโมชั่น</a>
-          <a href="about.html">เกี่ยวกับเรา</a>
-          <a href="contact.html">ติดต่อเรา</a>
-        </nav>
-        <p class="footer-copy">© ส้มตำแซ่บนัวครัวสมใจ — เปิดทุกวัน 10:00–19:00 น.</p>
+        <p class="footer-copy">© ส้มตำแซ่บนัวครัวสมใจ 2026
+          เปิดทุกวัน 10:00 – 19:00 น.</p>
       </div>
     </footer>
 
