@@ -874,6 +874,7 @@ if (itemModal) {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     if (itemModal?.classList.contains("is-open")) closeAddModal();
+    else if (successModal?.classList.contains("is-open")) closeSuccessModal();
     else if (cartModal?.classList.contains("is-open")) closeCartModal();
   }
 });
@@ -919,6 +920,40 @@ if (cartModalClose) cartModalClose.addEventListener('click', closeCartModal);
 if (cartModalBackdrop) cartModalBackdrop.addEventListener('click', closeCartModal);
 if (mobileCartBtn) mobileCartBtn.addEventListener('click', openCartModal);
 
+// ─── Success Modal ───
+const successModal = document.querySelector('#successModal');
+const successModalOk = document.querySelector('#successModalOk');
+const successModalNote = document.querySelector('#successModalNote');
+
+function openSuccessModal(note = '') {
+  if (!successModal) return;
+  if (successModalNote) successModalNote.textContent = note;
+  successModal.classList.add('is-open');
+  successModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('cart-modal-open');
+  successModalOk?.focus();
+}
+
+function closeSuccessModal() {
+  if (!successModal) return;
+  successModal.classList.remove('is-open');
+  successModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('cart-modal-open');
+}
+
+const successModalBackdrop = document.querySelector('#successModalBackdrop');
+
+if (successModalOk) {
+  successModalOk.addEventListener('click', () => {
+    closeSuccessModal();
+    closeCartModal();
+  });
+}
+
+if (successModalBackdrop) {
+  successModalBackdrop.addEventListener('click', closeSuccessModal);
+}
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
@@ -944,13 +979,12 @@ orderForm.addEventListener("submit", async (event) => {
     await submitOrder(payload);
     const locationNote =
       payload.fulfillment === "ส่งเดลิเวอรี่"
-        ? " กรณีส่งเดลิเวอรี่ รบกวนส่งตำแหน่งปัจจุบันเข้ามาในแชท LINE ของร้านได้เลยครับ"
+        ? "กรณีส่งเดลิเวอรี่ รบกวนส่งตำแหน่งปัจจุบันเข้ามาในแชท LINE ของร้านได้เลยครับ"
         : "";
-    formStatus.textContent = `รับออเดอร์เรียบร้อยครับ ทางร้านจะติดต่อกลับเพื่อยืนยันรายการอีกครั้งครับ${locationNote}`;
-    formStatus.classList.add("is-success");
     cart.clear();
     orderForm.reset();
     renderCart();
+    openSuccessModal(locationNote);
   } catch (error) {
     formStatus.textContent = "ส่งออเดอร์ไม่สำเร็จ กรุณาลองอีกครั้ง";
     formStatus.classList.add("is-error");

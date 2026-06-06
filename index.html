@@ -192,6 +192,18 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
+    <div class="success-modal" id="successModal" aria-hidden="true">
+      <div class="success-modal__backdrop" id="successModalBackdrop"></div>
+      <div class="success-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+        <div class="success-modal__icon">✅</div>
+        <h3 class="success-modal__title" id="successModalTitle">ส่งออเดอร์สำเร็จ</h3>
+        <p class="success-modal__body">เราได้รับคำสั่งซื้อของคุณแล้ว</p>
+        <p class="success-modal__body">พ่อค้าจะติดต่อกลับเพื่อยืนยันออเดอร์</p>
+        <p class="success-modal__note" id="successModalNote"></p>
+        <button class="success-modal__btn" id="successModalOk" type="button">ตกลง</button>
+      </div>
+    </div>
+
     <script src="app.js"></script>
     <button class="cart-fab" id="cartFab" aria-label="ตะกร้าสินค้า">
       🛒<span id="cartFabCount">0</span>
