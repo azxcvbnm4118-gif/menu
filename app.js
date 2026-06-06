@@ -390,6 +390,7 @@ const menuGroups = [
 
 const cart = new Map();
 const recommendedIds = new Set(["somtam-plara", "tam-thai", "yum-mama", "grilled-chicken"]);
+const bestSellerIds = new Set(["somtam-plara", "tam-pa", "larb-minced-pork", "grilled-chicken", "sticky-rice", "thai-tea"]);
 const menuSections = document.querySelector("#menuSections");
 const cartItems = document.querySelector("#cartItems");
 const cartEmpty = document.querySelector("#cartEmpty");
@@ -537,13 +538,16 @@ function renderMenu(category) {
 
 function renderMenuCard(item) {
   const defaultPrice = item.type === "simple" ? item.price : item.variants[0].price;
-  const badge = recommendedIds.has(item.id) ? `<span class="badge">แนะนำ</span>` : "";
+  const badges = [
+    recommendedIds.has(item.id) ? `<span class="badge badge--recommended">⭐ แนะนำ</span>` : "",
+    bestSellerIds.has(item.id) ? `<span class="badge badge--best-seller">🔥 ขายดี</span>` : "",
+  ].filter(Boolean).join("");
   const imageSrc = item.image || placeholderImage;
   return `
     <article class="menu-card menu-card--compact" data-menu-card="${item.id}">
       <div class="menu-card__media">
         <img src="${imageSrc}" alt="${item.name}" loading="lazy" data-menu-image onerror="this.onerror=null;this.src='${placeholderImage}'" />
-        ${badge}
+        ${badges}
       </div>
       <div class="menu-body">
         <h4>${item.name}</h4>
@@ -717,6 +721,7 @@ function addToCart(id) {
 }
 
 function renderCart() {
+  saveCart();
   const entries = [...cart.values()];
   const total = entries.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
   const count = entries.reduce((sum, item) => sum + item.quantity, 0);
@@ -995,3 +1000,68 @@ renderMenu("all");
 renderCart();
 window.addToCart = addToCart;
 window.confirmAddFromModal = confirmAddFromModal;
+// ─── Cart Persistence ───
+const CART_STORAGE_KEY = 'somtam_cart_v1';
+
+function saveCart() {
+  try {
+    const entries = [...cart.entries()];
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(entries));
+  } catch (e) {}
+}
+
+function loadCart() {
+  try {
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    if (!raw) return;
+    const entries = JSON.parse(raw);
+    if (!Array.isArray(entries)) return;
+    entries.forEach(([key, value]) => {
+      if (key && value && value.name) cart.set(key, value);
+    });
+    renderCart();
+  } catch (e) {
+    localStorage.removeItem(CART_STORAGE_KEY);
+  }
+}
+
+loadCart();
+
+// ─── Menu Search ───
+const menuSearchInput = document.querySelector('#menuSearch');
+
+function normalise(str) {
+  return str.toLowerCase().trim();
+}
+
+function renderSearchResults(query) {
+  const q = normalise(query);
+  const results = allItems().filter(item =>
+    normalise(item.name).includes(q) ||
+    normalise(item.description || '').includes(q)
+  );
+
+  if (results.length === 0) {
+    menuSections.innerHTML = `
+      <div class="menu-empty-state">
+        <div style="font-size:2.5rem">🔍</div>
+        <p>ไม่พบเมนู "<strong>${query}</strong>"</p>
+        <p>ลองค้นหาด้วยคำอื่น</p>
+      </div>`;
+    return;
+  }
+
+  menuSections.innerHTML = `<div class="menu-grid">${results.map(renderMenuCard).join('')}</div>`;
+}
+
+if (menuSearchInput) {
+  menuSearchInput.addEventListener('input', () => {
+    const q = menuSearchInput.value.trim();
+    if (q === '') {
+      const activeFilter = document.querySelector('.filter-button.is-active');
+      renderMenu(activeFilter ? activeFilter.dataset.category : 'all');
+    } else {
+      renderSearchResults(q);
+    }
+  });
+}

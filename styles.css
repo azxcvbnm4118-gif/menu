@@ -2100,3 +2100,52 @@ body.cart-modal-open {
     padding: 32px 20px 24px;
   }
 }
+
+/* ─── Menu Search ─── */
+.menu-search-wrap {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto 18px;
+  padding: 0 16px;
+}
+
+.menu-search {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.menu-search:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(179, 32, 37, 0.1);
+}
+
+.menu-search::placeholder {
+  color: var(--muted);
+}
+
+/* ─── Search Empty State ─── */
+.menu-empty-state {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--muted);
+}
+
+.menu-empty-state p {
+  font-size: 1rem;
+  margin: 8px 0 0;
+}
+
+/* ─── Best Seller Badge ─── */
+.badge--best-seller {
+  background: var(--primary);
+}
+
+.badge--recommended {
+  background: var(--secondary);
+}
