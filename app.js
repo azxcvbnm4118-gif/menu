@@ -872,7 +872,10 @@ if (itemModal) {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && itemModal?.classList.contains("is-open")) closeAddModal();
+  if (event.key === "Escape") {
+    if (itemModal?.classList.contains("is-open")) closeAddModal();
+    else if (cartModal?.classList.contains("is-open")) closeCartModal();
+  }
 });
 
 cartItems.addEventListener("click", (event) => {
@@ -887,13 +890,34 @@ cartItems.addEventListener("click", (event) => {
   }
 });
 
+// ─── Cart Modal open/close ───
+const cartModal = document.querySelector('#cartModal');
+const cartModalBackdrop = document.querySelector('#cartModalBackdrop');
+const cartModalClose = document.querySelector('#cartModalClose');
+const mobileCartBtn = document.querySelector('#mobileCartBtn');
+
+function openCartModal() {
+  if (!cartModal) return;
+  cartModal.classList.add('is-open');
+  cartModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('cart-modal-open');
+}
+
+function closeCartModal() {
+  if (!cartModal) return;
+  cartModal.classList.remove('is-open');
+  cartModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('cart-modal-open');
+}
+
 document.addEventListener('click', (event) => {
   const fab = event.target.closest && event.target.closest('#cartFab');
-  if (fab) {
-    const orderEl = document.querySelector('#order');
-    if (orderEl) orderEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  if (fab) openCartModal();
 });
+
+if (cartModalClose) cartModalClose.addEventListener('click', closeCartModal);
+if (cartModalBackdrop) cartModalBackdrop.addEventListener('click', closeCartModal);
+if (mobileCartBtn) mobileCartBtn.addEventListener('click', openCartModal);
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {

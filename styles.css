@@ -1918,3 +1918,83 @@ body.modal-open {
     font-size: 14px;
   }
 }
+
+/* ─── Cart Modal ─── */
+.cart-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cart-modal.is-open {
+  display: block;
+}
+
+.cart-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.cart-modal__dialog {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  width: min(860px, calc(100% - 32px));
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+  padding: 32px 24px 40px;
+}
+
+.cart-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  transition: background 150ms ease;
+}
+
+.cart-modal__close:hover {
+  background: #d0c4b4;
+}
+
+body.cart-modal-open {
+  overflow: hidden;
+}
+
+/* ปรับ order-section ภายใน modal ไม่ให้มี padding ซ้ำซ้อน */
+.cart-modal__dialog .order-section {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .cart-modal__dialog {
+    width: 100%;
+    margin: 0;
+    min-height: 100dvh;
+    border-radius: 0;
+    padding: 56px 16px 100px;
+  }
+
+  .cart-modal__close {
+    top: 12px;
+    right: 12px;
+  }
+}

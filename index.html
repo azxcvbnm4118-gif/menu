@@ -82,77 +82,85 @@
         <div id="menuSections"></div>
       </section>
 
-      <section class="order-section" id="order" aria-labelledby="orderTitle">
-        <div class="section-heading">
-          <p class="eyebrow">สรุปคำสั่งซื้อ</p>
-          <h2 id="orderTitle">ตะกร้าของคุณ</h2>
-        </div>
+    </main>
 
-        <div class="order-layout">
-          <div class="cart-panel">
-            <div id="cartItems" class="cart-items"></div>
-            <div class="cart-empty" id="cartEmpty">ยังไม่มีเมนูในตะกร้า</div>
-            <div class="total-row">
-              <span>รวมทั้งหมด</span>
-              <strong id="cartTotal">฿0</strong>
-            </div>
+    <div class="cart-modal" id="cartModal" aria-hidden="true">
+      <div class="cart-modal__backdrop" id="cartModalBackdrop"></div>
+      <div class="cart-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+        <button class="cart-modal__close" id="cartModalClose" type="button" aria-label="ปิดตะกร้า">×</button>
+
+        <section class="order-section" id="order" aria-labelledby="orderTitle">
+          <div class="section-heading">
+            <p class="eyebrow">สรุปคำสั่งซื้อ</p>
+            <h2 id="orderTitle">ตะกร้าของคุณ</h2>
           </div>
 
-          <form class="customer-form" id="orderForm">
-            <label>
-              ชื่อลูกค้า
-              <input name="customerName" autocomplete="name" required placeholder="เช่น คุณพล" />
-            </label>
-            <label>
-              เบอร์โทร
-              <input name="phone" inputmode="tel" autocomplete="tel" placeholder="08x-xxx-xxxx" />
-            </label>
-            <label>
-              วิธีรับอาหาร
-              <select name="fulfillment" required>
-                <option value="ทานที่ร้าน">ทานที่ร้าน</option>
-                <option value="รับที่ร้าน">รับที่ร้าน</option>
-                <option value="ส่งเดลิเวอรี่">ส่งเดลิเวอรี่</option>
-              </select>
-            </label>
-            <label>
-              วิธีชำระเงิน
-              <select name="paymentMethod" id="paymentMethod" required>
-                <option value="เงินสด">เงินสด</option>
-                <option value="โอนผ่านบัญชี/พร้อมเพย์">โอนผ่านบัญชี/พร้อมเพย์</option>
-                <option value="จ่ายที่ร้าน">จ่ายที่ร้าน</option>
-                <option value="เก็บเงินปลายทาง">เก็บเงินปลายทาง</option>
-              </select>
-            </label>
-            <div class="payment-details" id="paymentDetails" aria-live="polite">
-              <strong>โอนผ่านบัญชี/พร้อมเพย์</strong>
-              <p>เลือกวิธีชำระเงินแบบโอน แล้วคัดลอกเลขบัญชีหรือสแกน QR เพื่อชำระได้ทันที</p>
-              <div class="payment-grid">
-                <div>
-                  <span>ธนาคารกรุงศรี</span>
-                  <strong>2541841215</strong>
-                </div>
-                <div>
-                  <span>พร้อมเพย์</span>
-                  <strong>0965107402</strong>
-                </div>
+          <div class="order-layout">
+            <div class="cart-panel">
+              <div id="cartItems" class="cart-items"></div>
+              <div class="cart-empty" id="cartEmpty">ยังไม่มีเมนูในตะกร้า</div>
+              <div class="total-row">
+                <span>รวมทั้งหมด</span>
+                <strong id="cartTotal">฿0</strong>
               </div>
-              <img class="payment-qr" src="images/บาร์โค้ด1.1.png" alt="QR พร้อมเพย์สำหรับชำระเงิน" />
             </div>
-            <label>
-              หมายเหตุ
-              <textarea
-                name="note"
-                rows="4"
-                placeholder="(ใส่หรือไม่ก็ได้) บอกให้เราทราบคุณอยากบอกอะไรเพิ่มเติม"
-              ></textarea>
-            </label>
-            <button class="submit-button" type="submit">ส่งออเดอร์เข้า LINE</button>
-            <p class="form-status" id="formStatus" role="status"></p>
-          </form>
-        </div>
-      </section>
-    </main>
+
+            <form class="customer-form" id="orderForm">
+              <label>
+                ชื่อลูกค้า
+                <input name="customerName" autocomplete="name" required placeholder="เช่น คุณพล" />
+              </label>
+              <label>
+                เบอร์โทร
+                <input name="phone" inputmode="tel" autocomplete="tel" placeholder="08x-xxx-xxxx" />
+              </label>
+              <label>
+                วิธีรับอาหาร
+                <select name="fulfillment" required>
+                  <option value="ทานที่ร้าน">ทานที่ร้าน</option>
+                  <option value="รับที่ร้าน">รับที่ร้าน</option>
+                  <option value="ส่งเดลิเวอรี่">ส่งเดลิเวอรี่</option>
+                </select>
+              </label>
+              <label>
+                วิธีชำระเงิน
+                <select name="paymentMethod" id="paymentMethod" required>
+                  <option value="เงินสด">เงินสด</option>
+                  <option value="โอนผ่านบัญชี/พร้อมเพย์">โอนผ่านบัญชี/พร้อมเพย์</option>
+                  <option value="จ่ายที่ร้าน">จ่ายที่ร้าน</option>
+                  <option value="เก็บเงินปลายทาง">เก็บเงินปลายทาง</option>
+                </select>
+              </label>
+              <div class="payment-details" id="paymentDetails" aria-live="polite">
+                <strong>โอนผ่านบัญชี/พร้อมเพย์</strong>
+                <p>เลือกวิธีชำระเงินแบบโอน แล้วคัดลอกเลขบัญชีหรือสแกน QR เพื่อชำระได้ทันที</p>
+                <div class="payment-grid">
+                  <div>
+                    <span>ธนาคารกรุงศรี</span>
+                    <strong>2541841215</strong>
+                  </div>
+                  <div>
+                    <span>พร้อมเพย์</span>
+                    <strong>0965107402</strong>
+                  </div>
+                </div>
+                <img class="payment-qr" src="images/บาร์โค้ด1.1.png" alt="QR พร้อมเพย์สำหรับชำระเงิน" />
+              </div>
+              <label>
+                หมายเหตุ
+                <textarea
+                  name="note"
+                  rows="4"
+                  placeholder="(ใส่หรือไม่ก็ได้) บอกให้เราทราบคุณอยากบอกอะไรเพิ่มเติม"
+                ></textarea>
+              </label>
+              <button class="submit-button" type="submit">ส่งออเดอร์เข้า LINE</button>
+              <p class="form-status" id="formStatus" role="status"></p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="site-footer-inner">
@@ -193,7 +201,7 @@
     <nav class="mobile-nav" role="navigation" aria-label="เมนูหลักบนมือถือ">
       <a href="index.html" class="mobile-nav-item active">🏠<span>หน้าแรก</span></a>
       <a href="index.html#menu" class="mobile-nav-item">📋<span>เมนู</span></a>
-      <a href="index.html#order" class="mobile-nav-item cart-btn">🛒<span>ตะกร้า</span></a>
+      <button type="button" class="mobile-nav-item cart-btn" id="mobileCartBtn">🛒<span>ตะกร้า</span></button>
       <a href="promotion.html" class="mobile-nav-item">🎁<span>โปรโมชั่น</span></a>
       <a href="contact.html" class="mobile-nav-item">📞<span>ติดต่อ</span></a>
     </nav>
