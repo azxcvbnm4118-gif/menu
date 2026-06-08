@@ -130,10 +130,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero adjustments */
 .hero {
   position: relative;
-  min-height: 78vh;
+  min-height: 20vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg, rgba(8, 8, 8, 0.86), rgba(8, 8, 8, 0.22)), url("images/ส้มตำปลาร้า = IMG_0001.jpg") center / cover no-repeat;
+  background: linear-gradient(90deg, rgba(8, 8, 8, 0.86), rgba(8, 8, 8, 0.22)), url("images/hero-bg.jpg") center / cover no-repeat;
   color: #fff;
   padding: 0 24px;
 }
@@ -144,11 +144,7 @@ h1, h2, h3, h4, h5, h6 {
   background: radial-gradient(circle at left, rgba(255,255,255,0.04), rgba(0,0,0,0.65));
 }
 .hero .hero-copy {
-  position: relative;
-  z-index:2;
-  width: min(680px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 84px 0 84px;
+  padding: 20px 0;
 }
 .hero .eyebrow {
   color: var(--primary);
@@ -209,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav { display:none }
 @media (max-width:700px) {
   .site-nav .nav-links { display:none }
-  .hero { min-height:48vh }
+  .hero { min-height:20vh }
   .recommend-card img { height:140px }
   .mobile-nav { display:flex; position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid #eee; padding:8px 12px; justify-content:space-around; z-index:30 }
 }
@@ -220,6 +216,15 @@ h1, h2, h3, h4, h5, h6 {
 .section-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 0 16px; width: min(1120px, calc(100% - 32px)); margin: 18px auto }
 .section-heading .eyebrow { color: var(--chili); font-weight:900 }
 .section-heading h2 { margin: 0; font-size:1.6rem }
+
+.about-heading {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.info-heading {
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 /* Card badge */
 .badge { display:inline-block; background:var(--chili); color:#fff; padding:6px 10px; border-radius:999px; font-weight:800; font-size:0.85rem }
@@ -295,18 +300,18 @@ textarea {
 }
 
 .hero {
-  min-height: 72vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(90deg, rgba(7, 7, 7, 0.86), rgba(7, 7, 7, 0.25)), url("images/ส้มตำปลาร้า = IMG_0001.jpg") center / cover no-repeat;
+  background: linear-gradient(90deg, rgba(7, 7, 7, 0.86), rgba(7, 7, 7, 0.25)), url("images/hero-bg.jpg") center / cover no-repeat;
   color: #fff;
   position: relative;
 }
 
 @media (min-width: 521px) {
   .hero {
-    background: linear-gradient(90deg, rgba(24, 12, 6, 0.82), rgba(47, 111, 55, 0.28)), url("images/ส้มตำปลาร้า = IMG_0001.jpg") center / cover no-repeat;
+    background: linear-gradient(90deg, rgba(24, 12, 6, 0.82), rgba(47, 111, 55, 0.28)), url("images/hero-bg.jpg") center / cover no-repeat;
   }
 }
 
@@ -1463,9 +1468,10 @@ body.modal-open {
 
 @media (max-width: 860px) {
   .features-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
 
   .feature-item {
     padding: 12px;
@@ -1479,17 +1485,6 @@ body.modal-open {
     font-size: 1rem;
   }
 }
-
-@media (max-width: 520px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-icon {
-    font-size: 36px;
-  }
-}
-
 @media (max-width: 860px) {
   .order-layout {
     grid-template-columns: 1fr;
@@ -1527,7 +1522,7 @@ body.modal-open {
   }
 
   .hero {
-    min-height: 68vh;
+    min-height: 20vh;
   }
 }
 
@@ -1537,9 +1532,9 @@ body.modal-open {
   }
 
   .hero {
-    min-height: 62vh;
-    background: linear-gradient(180deg, rgba(24, 12, 6, 0.94), rgba(47, 111, 55, 0.22));
-  }
+  min-height: 20vh;
+  background: linear-gradient(180deg, rgba(24, 12, 6, 0.94), rgba(47, 111, 55, 0.22)), url("images/hero-bg.jpg") center / cover no-repeat;
+}
 
   .recommend-grid {
     grid-template-columns: 1fr;
