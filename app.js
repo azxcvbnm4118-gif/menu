@@ -383,9 +383,24 @@ const menuGroups = [
     title: "เมนูเครื่องดื่มแนะนำ",
     subtitle: "เมนูหวานเย็นยอดนิยม",
     items: [
+      
       simpleItem("grass-jelly-milk", "เฉาก๊วยนมสด", 35),
       simpleItem("grass-jelly-classic", "เฉาก๊วยโบราณ", 30),
-      simpleItem("coconut-smoothie", "มะพร้าวปั่นนมสด", 35),
+      variantItem(
+        "coconut-smoothie",
+        "มะพร้าวปั่นนมสด",
+        "เลือกสูตร",
+        [
+          ["original", "มะพร้าวปั่นนมสด", 35],
+          ["thai-tea", "มะพร้าวปั่นชาเย็น", 40],
+          ["green-tea", "มะพร้าวปั่นชาเขียว", 40],
+          ["coffee", "มะพร้าวปั่นกาแฟ", 40],
+          ["cocoa", "มะพร้าวปั่นโกโก้", 40],
+          ["taro", "มะพร้าวปั่นเผือก", 40],
+        ],
+        null,
+        false
+      ),
     ],
   },
 ];
@@ -597,7 +612,7 @@ function renderModalOptions(item) {
   if (item.type === "variant") {
     parts.push(`
       <label class="field-label">
-        เลือกวัตถุดิบ/รูปแบบ
+        👇 กินแบบไหนดีวันนี้ เลือกก่อนเพิ่มลงตะกร้า
         <select data-modal-variant>
           ${item.variants
             .map((variant) => `<option value="${variant.id}">${variant.name} - ${money(variant.price)}</option>`)
@@ -610,7 +625,7 @@ function renderModalOptions(item) {
   if (item.needsSpice) {
     parts.push(`
       <label class="field-label">
-        ระดับความเผ็ด
+        👇 ระดับความเผ็ด เลือกก่อนเพิ่มลงตะกร้า
         <select data-modal-spice>
           ${spiceLevels.map((level) => `<option value="${level}">${level}</option>`).join("")}
         </select>
