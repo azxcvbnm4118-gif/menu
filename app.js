@@ -865,11 +865,16 @@ if (cartSummaryButton) {
 }
 
 if (backToTopButton) {
+  window.addEventListener('scroll', () => {
+    backToTopButton.classList.toggle('is-visible', window.scrollY > 300);
+  }, { passive: true });
+
   backToTopButton.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    try {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (e) {
+      window.scrollTo(0, 0);
+    }
   });
 }
 
