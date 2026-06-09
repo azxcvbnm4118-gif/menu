@@ -61,6 +61,7 @@ const menuImages = {
   "grass-jelly-classic": "images/เฉาก๊วยโบราณ = IMG_0054.jpg",
   "coconut-smoothie": "images/มะพร้าวปั่นนมสด = IMG_0055.jpg",
   "black-coffee": "images/กาแฟดำ = IMG_0056.jpg",
+  "fresh-coconut": "images/น้ำมะพร้าวสด = IMG_0057.jpg",
 };
 
 const FEATURED_ITEM_IDS = [
@@ -339,7 +340,36 @@ const menuGroups = [
       simpleItem("bamboo-curry", "แกงหน่อไม้", 69, "แกงหน่อไม้ใส่ปลาร้า รสชาติเข้มข้น"),
     ],
   },
-  // ─── กลุ่ม 6: เครื่องดื่ม ชา/กาแฟ ───
+  // ─── กลุ่ม 6: เเครื่องดื่มแนะนำ ───
+  {
+    id: "drink-recommend",
+    category: "drink",
+    title: "เมนูเครื่องดื่มแนะนำ",
+    subtitle: "เมนูหวานเย็นยอดนิยม",
+    items: [
+      
+      variantItem(
+        "coconut-smoothie",
+        "มะพร้าวปั่นนมสด",
+        "เลือกสูตร",
+        [
+          ["original", "มะพร้าวปั่นนมสด", 35],
+          ["thai-tea", "มะพร้าวปั่นชาเย็น", 40],
+          ["green-tea", "มะพร้าวปั่นชาเขียว", 40],
+          ["coffee", "มะพร้าวปั่นกาแฟ", 40],
+          ["cocoa", "มะพร้าวปั่นโกโก้", 40],
+          ["taro", "มะพร้าวปั่นเผือก", 40],
+        ],
+        null,
+        false
+      ),
+      simpleItem("grass-jelly-milk", "เฉาก๊วยนมสด", 35),
+      simpleItem("grass-jelly-classic", "เฉาก๊วยโบราณ", 30),
+      simpleItem("fresh-coconut", "น้ำมะพร้าวสด", 30),
+      
+    ],
+  },
+  // ─── กลุ่ม 7: ครื่องดื่ม ชา/กาแฟ ───
   {
     id: "drink-tea",
     category: "drink",
@@ -357,7 +387,7 @@ const menuGroups = [
       drinkItem("cocoa", "โกโก้", 35, 40),
     ],
   },
-  // ─── กลุ่ม 7: เครื่องดื่ม โซดา ───
+  // ─── กลุ่ม 8: เครื่องดื่ม โซดา ───
   {
     id: "drink-soda",
     category: "drink",
@@ -376,38 +406,18 @@ const menuGroups = [
       simpleItem("honey-lime-soda", "น้ำผึ้งมะนาวโซดา", 40),
     ],
   },
-  // ─── กลุ่ม 8: เครื่องดื่มแนะนำ ───
-  {
-    id: "drink-recommend",
-    category: "drink",
-    title: "เมนูเครื่องดื่มแนะนำ",
-    subtitle: "เมนูหวานเย็นยอดนิยม",
-    items: [
-      
-      simpleItem("grass-jelly-milk", "เฉาก๊วยนมสด", 35),
-      simpleItem("grass-jelly-classic", "เฉาก๊วยโบราณ", 30),
-      variantItem(
-        "coconut-smoothie",
-        "มะพร้าวปั่นนมสด",
-        "เลือกสูตร",
-        [
-          ["original", "มะพร้าวปั่นนมสด", 35],
-          ["thai-tea", "มะพร้าวปั่นชาเย็น", 40],
-          ["green-tea", "มะพร้าวปั่นชาเขียว", 40],
-          ["coffee", "มะพร้าวปั่นกาแฟ", 40],
-          ["cocoa", "มะพร้าวปั่นโกโก้", 40],
-          ["taro", "มะพร้าวปั่นเผือก", 40],
-        ],
-        null,
-        false
-      ),
-    ],
-  },
 ];
 
 const cart = new Map();
-const recommendedIds = new Set(["tam-thai", "grilled-chicken"]);
+const recommendedIds = new Set([
+  "tam-thai",
+  "grilled-chicken",
+  "grass-jelly-milk",
+  "grass-jelly-classic",
+  "fresh-coconut",
+]);
 const bestSellerIds = new Set([
+  "coconut-smoothie",
   "somtam-plara",
   "yum-mama",
   "tam-pa",
