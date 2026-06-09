@@ -1628,7 +1628,7 @@ body.modal-open {
 }
 
 .page-hero {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1120px, calc(100% - 16px));
   margin: 0 auto;
   padding: 28px 16px 36px;
   color: #fff;
