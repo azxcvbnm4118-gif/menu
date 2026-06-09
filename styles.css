@@ -1639,6 +1639,7 @@ body.modal-open {
   margin: 8px 0 12px;
   color: #fff;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
+  white-space: nowrap;
 }
 
 .page-hero .eyebrow {
