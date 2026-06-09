@@ -406,8 +406,26 @@ const menuGroups = [
 ];
 
 const cart = new Map();
-const recommendedIds = new Set(["somtam-plara", "tam-thai", "yum-mama", "grilled-chicken"]);
-const bestSellerIds = new Set(["somtam-plara", "tam-pa", "larb-minced-pork", "grilled-chicken", "sticky-rice", "thai-tea"]);
+const recommendedIds = new Set(["tam-thai", "grilled-chicken"]);
+const bestSellerIds = new Set([
+  "somtam-plara",
+  "yum-mama",
+  "tam-pa",
+  "tam-taeng",
+  "tam-sua",
+  "tam-senlek",
+  "tam-lao",
+  "tam-kanomjeen",
+  "bamboo-soup",
+  "tam-pa-seafood",
+  "tam-plara-squid-neck",
+  "larb-minced-pork",
+  "grilled-chicken",
+  "sticky-rice",
+  "thai-tea",
+  "green-tea",
+  "coconut-smoothie"
+]);
 const menuSections = document.querySelector("#menuSections");
 const cartItems = document.querySelector("#cartItems");
 const cartEmpty = document.querySelector("#cartEmpty");
