@@ -60,6 +60,7 @@ const menuImages = {
   "grass-jelly-milk": "images/เฉาก๊วยนมสด = IMG_0053.jpg",
   "grass-jelly-classic": "images/เฉาก๊วยโบราณ = IMG_0054.jpg",
   "coconut-smoothie": "images/มะพร้าวปั่นนมสด = IMG_0055.jpg",
+  "black-coffee": "images/กาแฟดำ = IMG_0056.jpg",
 };
 
 const FEATURED_ITEM_IDS = [
@@ -352,6 +353,7 @@ const menuGroups = [
       drinkItem("ovaltine", "โอวัลติน", 30, 35),
       drinkItem("taro", "เผือก", 30, 35),
       drinkItem("coffee", "กาแฟ", 35, 40),
+      simpleItem("black-coffee", "กาแฟดำ", 35),
       drinkItem("cocoa", "โกโก้", 35, 40),
     ],
   },
