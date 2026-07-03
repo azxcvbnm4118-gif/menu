@@ -111,8 +111,8 @@ const menuGroups = [
         ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
       ]),
       variantItem("tam-pa", "ตำป่า", "ตำป่าใส่มะเขือ ถั่วฝักยาว รสเข้มข้น", [
-        ["base", "ธรรมดา", 49],
-        ["pickled-crab", "ปูเปรี้ยว", 59],
+        ["base", "ธรรมดา", 59],
+        ["pickled-crab", "ปูเปรี้ยว", 69],
         ["pork-sausage", "หมูยอ", 89],
         ["chicken-feet", "เล็บมือนาง", 99],
         ["shrimp", "กุ้งสด/สุก", 109],
@@ -330,11 +330,11 @@ const menuGroups = [
     title: "กินคู่กัน",
     subtitle: "ของกินคู่ส้มตำ เพิ่มความอิ่มครบชุด",
     items: [
-      simpleItem("grilled-chicken", "ไก่ย่าง", 20, "ชุด 3 ไม้ ย่างใหม่ ทุกครั้ง"),
-      simpleItem("sticky-rice", "ข้าวเหนียว", 10, "ข้าวเหนียวนึ่งสด ห่อใบตอง"),
-      simpleItem("grilled-pork", "หมูย่าง", 49, "หมูย่างหมักสูตรพิเศษ หอมเตา"),
-      simpleItem("kanomjeen", "ขนมจีน", 10, "ขนมจีนสดเส้นนุ่ม"),
-      simpleItem("pork-crackling", "แคปหมู", 10, "แคปหมูกรอบๆ เค็มหอม"),
+      simpleItem("grilled-chicken", "ไก่ย่าง", 20, "ชุด3ไม้ รอสุก10นาที<br>ย่างใหม่ ทุกครั้ง"),
+      simpleItem("sticky-rice", "ข้าวเหนียว", 10, "นึ่งใหม่ๆร้อนๆ"),
+      simpleItem("grilled-pork", "หมูย่าง", 49, "อบใหม่ รอสุก20นาที<br>สูตรหมัก ไม่ซ้ำใคร"),
+      simpleItem("kanomjeen", "ขนมจีน", 10, "ขนมจีนเส้นนุ่ม"),
+      simpleItem("pork-crackling", "แคปหมู", 10, "กรอบๆ อร่อยฟิน"),
     ],
   },
   // ─── กลุ่ม 6: เเครื่องดื่มแนะนำ ───
