@@ -1081,6 +1081,16 @@ function normalise(str) {
   return str.toLowerCase().trim();
 }
 
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[char]);
+}
+
 function renderSearchResults(query) {
   const q = normalise(query);
   const results = allItems().filter(item =>
@@ -1092,7 +1102,7 @@ function renderSearchResults(query) {
     menuSections.innerHTML = `
       <div class="menu-empty-state">
         <div style="font-size:2.5rem">🔍</div>
-        <p>ไม่พบเมนู "<strong>${query}</strong>"</p>
+        <p>ไม่พบเมนู "<strong>${escapeHtml(query)}</strong>"</p>
         <p>ลองค้นหาด้วยคำอื่น</p>
       </div>`;
     return;
