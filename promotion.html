@@ -15,24 +15,31 @@
   </head>
   <body class="page-home">
     <header class="hero">
-  <nav class="site-nav">
-
-    <div class="footer-brand">
-      <img src="images/โลโก้หลัก.png" alt="โลโก้ร้าน" width="48" height="48" />
-      <div>
-        <strong>ส้มตำแซ่บนัวครัวสมใจ</strong>
-      </div>
-    </div>
-
-    <nav class="footer-nav">
-      <a href="index.html">หน้าแรก</a>
-      <a href="index.html#menu">เมนู</a>
-      <a href="promotion.html">โปรโมชั่น</a>
-      <a href="about.html">เกี่ยวกับเรา</a>
-      <a href="contact.html">ติดต่อเรา</a>
-    </nav>
+      <nav class="site-nav" aria-label="เมนูหลัก">
+        <a class="site-brand" href="index.html" aria-label="ส้มตำแซ่บนัวครัวสมใจ หน้าแรก">
+          <img src="images/โลโก้หลัก.png" alt="โลโก้ร้าน" width="48" height="48" />
+          <strong>ส้มตำแซ่บนัวครัวสมใจ</strong>
+        </a>
+        <div class="header-search">
+          <input type="search" class="menu-search header-search-input" placeholder="ค้นหา ส้มตำ ไก่ย่าง ชาเย็น" autocomplete="off" aria-label="ค้นหาเมนู" data-header-search />
+        </div>
+        <div class="header-actions">
+          <a class="header-icon-button header-line-link" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener" aria-label="แอด LINE OA">LINE</a>
+          <button class="header-icon-button header-cart-button" type="button" aria-label="ไปหน้าสั่งอาหาร" data-header-cart>🛒<span>0</span></button>
+          <button class="hamburger-button" type="button" aria-label="เปิดเมนู" aria-controls="drawerMenu" aria-expanded="false">☰</button>
         </div>
       </nav>
+      <div class="drawer-backdrop" data-drawer-close hidden></div>
+      <aside class="drawer-menu" id="drawerMenu" aria-hidden="true">
+        <button class="drawer-close" type="button" data-drawer-close aria-label="ปิดเมนู">×</button>
+        <nav class="drawer-nav" aria-label="เมนูด้านข้าง">
+          <a href="index.html">หน้าแรก</a>
+          <a href="index.html#menu">เมนู</a>
+          <a href="promotion.html">โปรโมชั่น</a>
+          <a href="about.html">เกี่ยวกับเรา</a>
+          <a href="contact.html">ติดต่อเรา</a>
+        </nav>
+      </aside>
       <div class="page-hero">
         <p class="eyebrow">โปรโมชั่น</p>
         <h1>ข่าวสารและสิทธิพิเศษ</h1>
@@ -74,13 +81,6 @@
 </p>
       </div>
     </footer>
-
-    <nav class="mobile-nav" role="navigation" aria-label="เมนูหลักบนมือถือ">
-      <a href="index.html" class="mobile-nav-item">🏠<span>หน้าแรก</span></a>
-      <a href="index.html#menu" class="mobile-nav-item">📋<span>เมนู</span></a>
-      <a href="index.html#order" class="mobile-nav-item cart-btn">🛒<span>ตะกร้า</span></a>
-      <a href="promotion.html" class="mobile-nav-item active">🎁<span>โปรโมชั่น</span></a>
-      <a href="contact.html" class="mobile-nav-item">📞<span>ติดต่อ</span></a>
-    </nav>
+    <script src="header.js" defer></script>
   </body>
 </html>

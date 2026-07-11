@@ -24,24 +24,31 @@
   </head>
   <body class="page-home">
     <header class="hero">
-  <nav class="site-nav">
-
-    <div class="footer-brand">
-      <img src="images/โลโก้หลัก.png" alt="โลโก้ร้าน" width="48" height="48" />
-      <div>
-        <strong>ส้มตำแซ่บนัวครัวสมใจ</strong>
-      </div>
-    </div>
-
-    <nav class="footer-nav">
-      <a href="index.html">หน้าแรก</a>
-      <a href="index.html#menu">เมนู</a>
-      <a href="promotion.html">โปรโมชั่น</a>
-      <a href="about.html">เกี่ยวกับเรา</a>
-      <a href="contact.html">ติดต่อเรา</a>
-    </nav>
-
+      <nav class="site-nav" aria-label="เมนูหลัก">
+        <a class="site-brand" href="index.html" aria-label="ส้มตำแซ่บนัวครัวสมใจ หน้าแรก">
+          <img src="images/โลโก้หลัก.png" alt="โลโก้ร้าน" width="48" height="48" />
+          <strong>ส้มตำแซ่บนัวครัวสมใจ</strong>
+        </a>
+        <div class="header-search">
+          <input type="search" id="menuSearch" class="menu-search header-search-input" placeholder="ค้นหา ส้มตำ ไก่ย่าง ชาเย็น" autocomplete="off" aria-label="ค้นหาเมนู" />
+        </div>
+        <div class="header-actions">
+          <a class="header-icon-button header-line-link" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener" aria-label="แอด LINE OA">LINE</a>
+          <button class="header-icon-button header-cart-button" id="headerCartBtn" type="button" aria-label="เปิดตะกร้าสินค้า">🛒<span id="cartCount">0</span></button>
+          <button class="hamburger-button" type="button" aria-label="เปิดเมนู" aria-controls="drawerMenu" aria-expanded="false">☰</button>
+        </div>
       </nav>
+      <div class="drawer-backdrop" data-drawer-close hidden></div>
+      <aside class="drawer-menu" id="drawerMenu" aria-hidden="true">
+        <button class="drawer-close" type="button" data-drawer-close aria-label="ปิดเมนู">×</button>
+        <nav class="drawer-nav" aria-label="เมนูด้านข้าง">
+          <a href="index.html">หน้าแรก</a>
+          <a href="index.html#menu">เมนู</a>
+          <a href="promotion.html">โปรโมชั่น</a>
+          <a href="about.html">เกี่ยวกับเรา</a>
+          <a href="contact.html">ติดต่อเรา</a>
+        </nav>
+      </aside>
       <div class="hero-copy">
         <p class="eyebrow">แซ่บนัว ไม่ซ้ำใคร</p>
         <h1>ปลาร้านัว ๆ ถึงเครื่องอีสานแท้</h1>
@@ -84,9 +91,6 @@
           <div>
             <h2 id="menuTitle">ยอดนิยม</h2>
           </div>
-        </div>
-        <div class="menu-search-wrap">
-          <input type="search" id="menuSearch" class="menu-search" placeholder="🔍 ค้นหาเมนู เช่น ส้มตำ, ไก่ย่าง..." autocomplete="off" aria-label="ค้นหาเมนู" />
         </div>
         <div id="menuSections"></div>
       </section>
@@ -164,6 +168,7 @@
                 ></textarea>
               </label>
               <button class="submit-button" type="submit">ส่งออเดอร์เข้า LINE</button>
+              <a class="line-order-link" href="https://line.me/R/ti/p/@680pbprj" target="_blank" rel="noopener">แอด LINE OA เพื่อคุยกับร้าน</a>
               <p class="form-status" id="formStatus" role="status"></p>
             </form>
           </div>
@@ -204,6 +209,11 @@
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <button class="cart-summary-button" id="cartSummaryButton" type="button" hidden>
+      ดูตะกร้า
+      <span class="cart-summary-count" id="cartSummaryCount">0</span>
+      <span class="cart-summary-total" id="cartSummaryTotal">฿0</span>
+    </button>
 
     <div class="success-modal" id="successModal" aria-hidden="true">
       <div class="success-modal__backdrop" id="successModalBackdrop"></div>
@@ -218,17 +228,10 @@
     </div>
 
     <script src="app.js" defer></script>
+    <script src="header.js" defer></script>
     <button class="cart-fab" id="cartFab" aria-label="ตะกร้าสินค้า">
       🛒<span id="cartFabCount">0</span>
     </button>
     <button class="back-top" id="backToTop" type="button" aria-label="เลื่อนกลับไปด้านบน">↑</button>
-
-    <nav class="mobile-nav" role="navigation" aria-label="เมนูหลักบนมือถือ">
-      <a href="index.html" class="mobile-nav-item active">🏠<span>หน้าแรก</span></a>
-      <a href="index.html#menu" class="mobile-nav-item">📋<span>เมนู</span></a>
-      <button type="button" class="mobile-nav-item cart-btn" id="mobileCartBtn">🛒<span>ตะกร้า</span></button>
-      <a href="promotion.html" class="mobile-nav-item">🎁<span>โปรโมชั่น</span></a>
-      <a href="contact.html" class="mobile-nav-item">📞<span>ติดต่อ</span></a>
-    </nav>
   </body>
 </html>
