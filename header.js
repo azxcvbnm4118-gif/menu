@@ -37,7 +37,11 @@
     button.addEventListener("click", () => {
       const cartModal = document.querySelector("#cartModal");
       if (cartModal && typeof window.openCartModal === "function") {
-        window.openCartModal();
+        if (cartModal.classList.contains("is-open") && typeof window.closeCartModal === "function") {
+          window.closeCartModal();
+        } else {
+          window.openCartModal();
+        }
         return;
       }
       window.location.href = "index.html#menu";

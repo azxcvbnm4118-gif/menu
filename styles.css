@@ -761,6 +761,10 @@ h1 {
   color: #fff;
 }
 
+.filters-hint {
+  display: none;
+}
+
 .category-jump {
   position: fixed;
   right: 18px;
@@ -791,17 +795,18 @@ h1 {
   position: fixed;
   right: 18px;
   bottom: 18px;
-  z-index: 40;
+  z-index: 180;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 12px 18px;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--chili), var(--leaf));
+  background: #24180f;
   color: #fff;
   font-weight: 900;
-  box-shadow: 0 18px 42px rgba(24, 12, 6, 0.22);
+  border: 2px solid #3a2a1d;
+  box-shadow: 0 18px 42px rgba(36, 24, 15, 0.28);
   cursor: pointer;
   min-width: 180px;
   justify-content: center;
@@ -815,8 +820,13 @@ h1 {
 .cart-summary-total {
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--gold);
+  color: #24180f;
   font-size: 0.95rem;
+}
+
+.cart-summary-button {
+  color: #fff;
 }
 
 .toast {
@@ -1978,7 +1988,7 @@ body.modal-open {
   z-index: 1;
   background: var(--bg);
   width: min(860px, calc(100% - 32px));
-  margin: 40px auto;
+  margin: 92px auto 40px;
   border-radius: 20px;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
   padding: 32px 24px 40px;
@@ -1986,20 +1996,20 @@ body.modal-open {
 
 .cart-modal__close {
   position: absolute;
-  top: 14px;
+  top: 18px;
   right: 16px;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border: none;
   border-radius: 50%;
-  background: var(--border);
-  color: var(--text);
-  font-size: 1.4rem;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.7rem;
   line-height: 1;
   cursor: pointer;
   display: grid;
   place-items: center;
-  z-index: 2;
+  z-index: 260;
   transition: background 150ms ease;
 }
 
@@ -2020,14 +2030,14 @@ body.cart-modal-open {
 @media (max-width: 520px) {
   .cart-modal__dialog {
     width: 100%;
-    margin: 0;
-    min-height: 100dvh;
+    margin: 58px 0 0;
+    min-height: calc(100dvh - 58px);
     border-radius: 0;
-    padding: 56px 16px 100px;
+    padding: 48px 16px 100px;
   }
 
   .cart-modal__close {
-    top: 12px;
+    top: 14px;
     right: 12px;
   }
 }
@@ -2215,6 +2225,18 @@ body.cart-modal-open {
     padding: 8px 12px;
   }
 
+  .filters-hint {
+    flex: 0 0 auto;
+    min-height: 40px;
+    padding: 0 4px;
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
   .filter-button .label {
     font-size: 0.85rem;
   }
@@ -2267,7 +2289,8 @@ body.cart-modal-open {
   }
 
   .back-top {
-    bottom: 78px;
+    bottom: 96px;
+    z-index: 190;
   }
 
   .cart-fab {
