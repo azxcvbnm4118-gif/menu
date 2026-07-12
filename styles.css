@@ -1218,20 +1218,6 @@ body.modal-open {
   color: var(--primary);
 }
 
-.line-order-link {
-  min-height: 44px;
-  padding: 11px 14px;
-  border-radius: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #034f25;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 900;
-  box-shadow: 0 12px 28px rgba(3, 79, 37, 0.22);
-}
-
 .field-label select {
   min-height: 42px;
   border: 1px solid var(--line);

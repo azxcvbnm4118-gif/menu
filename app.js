@@ -1,4 +1,5 @@
 const ORDER_ENDPOINT = "https://somtam-line-order.azxcvbnm4118.workers.dev/";
+const LINE_OA_URL = "https://line.me/R/ti/p/@680pbprj";
 
 const spiceLevels = ["ไม่เผ็ด", "เผ็ดน้อย", "เผ็ดกลาง", "เผ็ดมาก", "เผ็ดสะใจ"];
 const placeholderImage =
@@ -1052,6 +1053,7 @@ orderForm.addEventListener("submit", async (event) => {
     orderForm.reset();
     renderCart();
     openSuccessModal(locationNote);
+    window.open(LINE_OA_URL, "_blank", "noopener");
   } catch (error) {
     formStatus.textContent = "ส่งออเดอร์ไม่สำเร็จ กรุณาลองอีกครั้ง";
     formStatus.classList.add("is-error");
