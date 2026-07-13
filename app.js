@@ -364,6 +364,7 @@ const menuGroups = [
       simpleItem("grass-jelly-milk", "เฉาก๊วยนมสด", 35),
       simpleItem("grass-jelly-classic", "เฉาก๊วยโบราณ", 30),
       simpleItem("fresh-coconut", "น้ำมะพร้าวสด", 30),
+      simpleItem("water", "น้ำเปล่า", 10, "น้ำดื่มขวดละ 10 บาท"),
       
     ],
   },
