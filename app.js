@@ -62,6 +62,7 @@ const menuImages = {
   "coconut-smoothie": "images/มะพร้าวปั่นนมสด = IMG_0055.jpg",
   "black-coffee": "images/กาแฟดำ = IMG_0056.jpg",
   "fresh-coconut": "images/น้ำมะพร้าวสด = IMG_0057.jpg",
+  "water": "images/น้ำเปล่า = IMG_0058.png",
   "soft-drink": "images/น้ำอัดลม = IMG_0058.jpg",
 };
 
