@@ -14,7 +14,6 @@ const menuImages = {
   "tam-lao": "images/ตำเหลา = IMG_0006.jpg",
   "tam-kanomjeen": "images/ตำขนมจีน = IMG_0007.jpg",
   "bamboo-soup": "images/ซุปหน่อไม้ = IMG_0008.jpg",
-  "bamboo-curry": "images/แกงหน่อไม้ = IMG_0009.jpg",
   "tam-pa-seafood": "images/ตำป่าทะเลรวม = IMG_0010.jpg",
   "tam-plara-squid-neck": "images/ตำปลาร้าคอหมึก = IMG_0011.jpg",
   "tam-thai": "images/ตำไทย = IMG_0012.jpg",
@@ -63,6 +62,7 @@ const menuImages = {
   "coconut-smoothie": "images/มะพร้าวปั่นนมสด = IMG_0055.jpg",
   "black-coffee": "images/กาแฟดำ = IMG_0056.jpg",
   "fresh-coconut": "images/น้ำมะพร้าวสด = IMG_0057.jpg",
+  "soft-drink": "images/น้ำอัดลม = IMG_0058.jpg",
 };
 
 const FEATURED_ITEM_IDS = [
@@ -365,6 +365,17 @@ const menuGroups = [
       simpleItem("grass-jelly-classic", "เฉาก๊วยโบราณ", 30),
       simpleItem("fresh-coconut", "น้ำมะพร้าวสด", 30),
       simpleItem("water", "น้ำเปล่า", 10, "น้ำดื่มขวดละ 10 บาท"),
+      variantItem(
+        "soft-drink",
+        "น้ำอัดลม",
+        "เลือกขนาด",
+        [
+          ["large", "ขวดใหญ่", 40],
+          ["small", "ขวดเล็ก", 20],
+        ],
+        null,
+        false
+      ),
       
     ],
   },
