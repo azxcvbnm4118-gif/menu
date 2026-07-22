@@ -1,5 +1,6 @@
 const ORDER_ENDPOINT = "https://somtam-line-order.azxcvbnm4118.workers.dev/";
 const LINE_OA_URL = "https://line.me/R/ti/p/@680pbprj";
+const LIFF_ID = "2010801863-UI4v4GzG";
 
 const spiceLevels = ["ไม่เผ็ด", "เผ็ดน้อย", "เผ็ดกลาง", "เผ็ดมาก", "เผ็ดสะใจ"];
 const placeholderImage =
@@ -476,6 +477,30 @@ const itemModalQty = document.querySelector("#itemModalQty");
 const itemModalConfirm = document.querySelector("#itemModalConfirm");
 let toastTimeout;
 let modalActiveItemId = null;
+let lineCustomer = null;
+const lineProfilePromise = initLineCustomer();
+
+async function initLineCustomer() {
+  if (!window.liff) return;
+
+  try {
+    await liff.init({ liffId: LIFF_ID });
+    if (!liff.isLoggedIn()) {
+      if (location.href.includes("liff.line.me")) {
+        liff.login({ redirectUri: location.href });
+      }
+      return;
+    }
+
+    const profile = await liff.getProfile();
+    lineCustomer = {
+      userId: profile.userId,
+      displayName: profile.displayName,
+    };
+  } catch (error) {
+    lineCustomer = null;
+  }
+}
 
 function variantItem(id, name, description, variants, toppings = null, needsSpice = true) {
   return {
@@ -857,6 +882,8 @@ function buildOrderPayload(formData) {
     createdAt: new Date().toISOString(),
     customerName: formData.get("customerName"),
     phone: formData.get("phone"),
+    lineUserId: lineCustomer?.userId || "",
+    lineDisplayName: lineCustomer?.displayName || "",
     fulfillment: formData.get("fulfillment"),
     paymentMethod: formData.get("paymentMethod"),
     note: formData.get("note"),
@@ -1053,6 +1080,7 @@ orderForm.addEventListener("submit", async (event) => {
     return;
   }
 
+  await lineProfilePromise;
   const payload = buildOrderPayload(new FormData(orderForm));
   if (!payload.phone || !payload.phone.trim()) {
     formStatus.textContent = "กรุณากรอกเบอร์โทรก่อนส่งออเดอร์";
