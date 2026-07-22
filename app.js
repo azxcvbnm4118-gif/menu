@@ -1054,6 +1054,13 @@ orderForm.addEventListener("submit", async (event) => {
   }
 
   const payload = buildOrderPayload(new FormData(orderForm));
+  if (!payload.phone || !payload.phone.trim()) {
+    formStatus.textContent = "กรุณากรอกเบอร์โทรก่อนส่งออเดอร์";
+    formStatus.classList.add("is-error");
+    orderForm.elements.phone?.focus();
+    return;
+  }
+
   formStatus.textContent = "กำลังส่งคำสั่งซื้อ...";
 
   try {
