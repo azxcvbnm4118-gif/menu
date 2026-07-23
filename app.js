@@ -173,7 +173,7 @@ const menuGroups = [
         ["mixed-seafood", "ทะเลรวมสด/สุก", 139],
       ]),
       simpleItem("bamboo-soup", "ซุปหน่อไม้", 49, "นัวปลาร้า หอมกลิ่นข้าวคั่ว", true),
-      simpleItem("tam-pa-seafood", "ตำป่าทะเลรวม", 139, "ตำเน้นผักทะเลรวม แซ่บ เต็มอิ่ม"),
+      simpleItem("tam-pa-seafood", "ตำป่าทะเลรวม", 149, "ตำเน้นผักทะเลรวม แซ่บ เต็มอิ่ม", true),
       simpleItem("tam-plara-squid-neck", "ตำปลาร้าคอหมึก", 89, "คอหมึกเด้งกรุบๆ ในตำปลาร้ารสแซ่บ"),
     ],
   },
