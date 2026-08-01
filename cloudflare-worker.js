@@ -121,7 +121,8 @@ function buildWelcomeMenuMessage() {
 function buildOrderMessage(order) {
   const itemLines = order.items.map((item) => {
     const toppings = item.toppings && item.toppings.length ? `\n   เพิ่ม: ${item.toppings.join(", ")}` : "";
-    return `• ${item.name} (${item.variantName}) x${item.quantity} = ฿${item.subtotal}\n   🌶️ เผ็ด: ${item.spice}${toppings}`;
+    const spice = item.spice && item.spice !== "-" ? `\n   🌶️ เผ็ด: ${item.spice}` : "";
+    return `• ${item.name} (${item.variantName}) x${item.quantity} = ฿${item.subtotal}${spice}${toppings}`;
   }).join("\n\n");
 
   return [
@@ -143,7 +144,8 @@ function buildOrderMessage(order) {
 function buildCustomerMessage(order) {
   const itemLines = order.items.map((item) => {
     const toppings = item.toppings && item.toppings.length ? `\n   เพิ่ม: ${item.toppings.join(", ")}` : "";
-    return `• ${item.name} (${item.variantName}) x${item.quantity} = ฿${item.subtotal}\n   🌶️ เผ็ด: ${item.spice}${toppings}`;
+    const spice = item.spice && item.spice !== "-" ? `\n   🌶️ เผ็ด: ${item.spice}` : "";
+    return `• ${item.name} (${item.variantName}) x${item.quantity} = ฿${item.subtotal}${spice}${toppings}`;
   }).join("\n\n");
 
   return [
