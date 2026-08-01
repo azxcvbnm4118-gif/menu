@@ -1,0 +1,11 @@
+{
+  "name": "somtam-line-order",
+  "main": "cloudflare-worker.js",
+  "compatibility_date": "2026-07-26",
+  "kv_namespaces": [
+    {
+      "binding": "SOMTAM_REPLY_STATE",
+      "id": "fec7cdefc4874768a7c34381a8427cf8"
+    }
+  ]
+}

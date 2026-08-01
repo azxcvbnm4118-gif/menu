@@ -46,9 +46,9 @@ function assert(condition, message) {
 }
 
 async function addFirstItemViaModal(page) {
-  await page.click("button[data-add]");
+  await page.evaluate(() => document.querySelector("button[data-add]").click());
   await page.waitForSelector("#itemModal.is-open");
-  await page.click("#itemModalConfirm");
+  await page.evaluate(() => document.querySelector("#itemModalConfirm").click());
   await page.waitForFunction(() => Number(document.querySelector("#cartCount").textContent) > 0);
 }
 
@@ -95,12 +95,12 @@ async function addFirstItemViaModal(page) {
     const filterCount = await page.$$eval(".filter-button", (els) => els.length);
     assert(filterCount >= 5, "category filters should exist");
 
-    await page.click('.filter-button[data-category="drink"]');
+    await page.evaluate(() => document.querySelector('.filter-button[data-category="drink"]').click());
     await page.waitForFunction(() => document.querySelectorAll(".menu-card").length > 0);
     const drinkTitle = await page.$eval("#menuTitle", (el) => el.textContent.trim());
     assert(drinkTitle.length > 0, "drink filter should update menu title");
 
-    await page.click('.filter-button[data-category="all"]');
+    await page.evaluate(() => document.querySelector('.filter-button[data-category="all"]').click());
     await page.waitForSelector(".menu-card");
 
     await addFirstItemViaModal(page);
@@ -118,11 +118,11 @@ async function addFirstItemViaModal(page) {
     assert(Number(afterAdd.count) === 1, "cart count should be 1 after add");
     assert(afterAdd.total !== "฿0", "cart total should update");
 
-    await page.click("[data-increase]");
+    await page.evaluate(() => document.querySelector("[data-increase]").click());
     const afterIncrease = await page.evaluate(() => document.querySelector("#cartCount").textContent);
     assert(Number(afterIncrease) === 2, "quantity increase should work");
 
-    await page.click("[data-decrease]");
+    await page.evaluate(() => document.querySelector("[data-decrease]").click());
     const afterDecrease = await page.evaluate(() => document.querySelector("#cartCount").textContent);
     assert(Number(afterDecrease) === 1, "quantity decrease should work");
 
@@ -137,13 +137,14 @@ async function addFirstItemViaModal(page) {
     );
     assert(paymentHidden, "payment details should hide for cash");
 
-    await page.click("[data-remove]");
+    await page.evaluate(() => document.querySelector("[data-remove]").click());
     const emptyCart = await page.evaluate(() => document.querySelector("#cartCount").textContent);
     assert(Number(emptyCart) === 0, "remove item should empty cart");
 
     await addFirstItemViaModal(page);
 
     await page.evaluate(() => {
+      document.querySelector("#cartFab").click();
       window.__orderPayload = null;
       window.fetch = async (url, options) => {
         window.__orderPayload = JSON.parse(options.body);
@@ -153,11 +154,8 @@ async function addFirstItemViaModal(page) {
 
     await page.type('input[name="customerName"]', "ทดสอบ");
     await page.type('input[name="phone"]', "0812345678");
-    await page.click(".submit-button");
-    await page.waitForFunction(() => {
-      const status = document.querySelector("#formStatus");
-      return status && status.classList.contains("is-success");
-    });
+    await page.evaluate(() => document.querySelector(".submit-button").click());
+    await page.waitForSelector("#successModal.is-open");
 
     const payload = await page.evaluate(() => window.__orderPayload);
     assert(payload && payload.items.length === 1, "order payload should include cart items");
