@@ -1129,7 +1129,11 @@ function loadCart() {
     const entries = JSON.parse(raw);
     if (!Array.isArray(entries)) return;
     entries.forEach(([key, value]) => {
-      if (key && value && value.name) cart.set(key, value);
+      if (key && value && value.name) {
+        const menuItem = menuItemById(value.id);
+        const cleanValue = menuItem && !menuItem.needsSpice ? { ...value, spice: "-" } : value;
+        cart.set(key, cleanValue);
+      }
     });
     renderCart();
   } catch (e) {
