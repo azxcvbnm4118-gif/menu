@@ -947,7 +947,7 @@ if (contactMainButton && contactPopup) {
 
 if (paymentMethodSelect && paymentDetails) {
   paymentMethodSelect.addEventListener("change", () => {
-    const isTransfer = paymentMethodSelect.value === "โอนผ่านบัญชี/พร้อมเพย์";
+    const isTransfer = paymentMethodSelect.value === "โอนบัญชี QR Cod";
     paymentDetails.classList.toggle("is-visible", isTransfer);
   });
 }

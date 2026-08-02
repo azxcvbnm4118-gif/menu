@@ -126,7 +126,7 @@ async function addFirstItemViaModal(page) {
     const afterDecrease = await page.evaluate(() => document.querySelector("#cartCount").textContent);
     assert(Number(afterDecrease) === 1, "quantity decrease should work");
 
-    await page.select("#paymentMethod", "โอนผ่านบัญชี/พร้อมเพย์");
+    await page.select("#paymentMethod", "โอนบัญชี QR Cod");
     const paymentVisible = await page.$eval("#paymentDetails", (el) => el.classList.contains("is-visible"));
     assert(paymentVisible, "payment details should show for transfer");
 
